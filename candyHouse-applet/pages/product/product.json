@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-icon": "vant-weapp/icon",
+    "van-action-sheet":"vant-weapp/action-sheet",
+    "van-stepper":"vant-weapp/stepper"
+  },
+  "navigationStyle":"custom"
+}

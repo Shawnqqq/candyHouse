@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-icon": "vant-weapp/icon",
+    "van-button":"vant-weapp/button",
+    "van-checkbox": "vant-weapp/checkbox",
+    "van-checkbox-group":"vant-weapp/checkbox-group",
+    "van-card":"vant-weapp/card",
+    "van-submit-bar":"vant-weapp/submit-bar"
+  },
+  "navigationBarTitleText": "购物车"
+}
