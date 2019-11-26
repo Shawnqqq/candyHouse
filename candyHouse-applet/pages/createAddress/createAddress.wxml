@@ -1,0 +1,101 @@
+<view class="container">
+  <view class="option-container">
+    <view class="option">
+      <van-cell-group
+        style="width:100%;">
+        <van-field
+          value="{{ info.name }}"
+          clearable
+          label="收货人"
+          placeholder="请填入收货人的姓名"
+          placeholder-style="font-size:26rpx;color:#C0C0C0;"
+          bind:change="changeName"
+        />
+      </van-cell-group>
+    </view>
+    <view class="option">
+      <van-radio-group value="{{ info.sex }}" 
+        class="option-radio"
+        bind:change="changeSex">
+        <van-radio
+          checked-color="#FF1493"
+          name="1" 
+          custom-class="option-radio-item">女士</van-radio>
+        <van-radio checked-color="#FF1493" name="2">先生</van-radio>
+      </van-radio-group>
+    </view>
+    <view class="option">
+      <van-cell-group
+        style="width:100%;">
+        <van-field
+          value="{{ info.phone }}"
+          type="number"
+          clearable
+          label="手机号"
+          placeholder="请填入收货人的手机号"
+          placeholder-style="font-size:26rpx;color:#C0C0C0;"
+          bind:change="changePhone"
+        />
+      </van-cell-group>
+    </view>
+    <view class="option">
+      <van-cell-group
+        style="width:100%;position:relative;">
+        <van-field
+          readonly
+          value="{{ info.location.name }}"
+          clearable
+          label="收货地址"
+          placeholder="点击选择收货地址"
+          placeholder-style="font-size:26rpx;color:#C0C0C0;"
+        />
+        <view class="onMap" bindtap="onMap"></view>
+      </van-cell-group>
+    </view>
+    <view class="option">
+      <van-cell-group
+        style="width:100%;">
+        <van-field
+          value="{{ info.desc }}"
+          clearable
+          label="门牌号"
+          placeholder="详情地址，例如：3号楼二单元105"
+          placeholder-style="font-size:26rpx;color:#C0C0C0;"
+          bind:change="changeDesc"
+        />
+      </van-cell-group>
+    </view>
+    <view class="option tag">
+      <view class="title">标签</view>
+      <van-tag plain
+        type="{{info.tag==='家' ? 'primary' : ''}}"
+        size="large" 
+        custom-class="tag-item"
+        data-value="家"
+        bindtap="changeTag">家</van-tag>
+      <van-tag plain
+        type="{{info.tag==='公司' ? 'danger' : ''}}"
+        size="large" 
+        custom-class="tag-item"
+        data-value="公司"
+        bindtap="changeTag">公司</van-tag>
+      <van-tag plain 
+        type="{{info.tag==='学校' ? 'success' : ''}}"
+        size="large" 
+        custom-class="tag-item"
+        data-value="学校"
+        bindtap="changeTag">学校</van-tag>
+    </view>
+    <view class="default">
+      <view class="title">设为默认地址</view>
+      <view class="default-desc title">每次购物时会优先定位至该地址，方便您轻松购物</view>
+      <van-switch 
+        checked="{{ info.default }}" 
+        bind:change="changeDefault"
+        size="40rpx;"
+        active-color="#FF1493"
+        custom-class="default-btn" />
+    </view>
+  </view>
+  <view class="submit-btn" bindtap="sumbitAddress">保存并使用</view>
+</view>

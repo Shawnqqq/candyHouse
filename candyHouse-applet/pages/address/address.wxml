@@ -1,0 +1,56 @@
+<view class="container">
+  <view class="address-banner">
+    <navigator class="banner-create" url="/pages/createAddress/createAddress">新增地址</navigator>
+  </view>
+  <van-notice-bar
+    text="只支持同城配送，请您选择准确的收获地址 "
+  />
+  <view class="address-list">
+    <view class="address-item">
+      <van-swipe-cell
+        right-width="65">
+        <view class="address-content">
+          <view class="address">扎克斯宇宙中心 46号</view>
+          <view class="address-desc">右转第二个门口</view>
+          <van-tag plain type="success" custom-class="address-tag">学校</van-tag>
+          <van-tag type="danger">默认</van-tag>
+        </view>
+        <view class="address-content">
+          <view class="address-user">蝴蝶忍</view>
+          <view class="address-phone">13112808045</view>
+        </view>
+        <view slot="right">删除</view>
+      </van-swipe-cell>
+    </view>
+    <view class="address-item">
+      <van-swipe-cell
+        right-width="65">
+        <view class="address-content">
+          <view class="address">扎克斯宇宙中心 46号</view>
+          <view class="address-desc">右转第二个门口</view>
+          <van-tag plain type="success" custom-class="address-tag">学校</van-tag>
+        </view>
+        <view class="address-content">
+          <view class="address-user">蝴蝶忍</view>
+          <view class="address-phone">13112808045</view>
+        </view>
+        <view slot="right">删除</view>
+      </van-swipe-cell>
+    </view>
+    <view class="address-item">
+      <van-swipe-cell
+        right-width="65">
+        <view class="address-content">
+          <view class="address">扎克斯宇宙中心 46号</view>
+          <view class="address-desc">右转第二个门口</view>
+          <van-tag plain type="success" custom-class="address-tag">学校</van-tag>
+        </view>
+        <view class="address-content">
+          <view class="address-user">蝴蝶忍</view>
+          <view class="address-phone">13112808045</view>
+        </view>
+        <view slot="right">删除</view>
+      </van-swipe-cell>
+    </view>
+  </view>
+</view>

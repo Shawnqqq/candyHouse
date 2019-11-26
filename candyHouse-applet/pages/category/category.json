@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "van-icon": "vant-weapp/icon"
+    "van-icon": "vant-weapp/icon",
+    "van-skeleton": "vant-weapp/skeleton"
   },
   "navigationBarTitleText": "分类"
 }

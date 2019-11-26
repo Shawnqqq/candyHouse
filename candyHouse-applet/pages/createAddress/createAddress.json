@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-radio":"vant-weapp/radio",
+    "van-radio-group":"vant-weapp/radio-group",
+    "van-field":"vant-weapp/field",
+    "van-tag":"vant-weapp/tag",
+    "van-switch":"vant-weapp/switch"
+  },
+  "navigationBarTitleText": "新增收货地址"
+}

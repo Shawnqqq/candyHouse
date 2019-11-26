@@ -1,6 +1,6 @@
 Page({
   data: {
-    empty:true,
+    empty:false,
     orderValue:[],
     all:false
   },

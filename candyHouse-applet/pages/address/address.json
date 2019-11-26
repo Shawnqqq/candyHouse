@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-notice-bar":"vant-weapp/notice-bar",
+    "van-swipe-cell":"vant-weapp/swipe-cell",
+    "van-tag":"vant-weapp/tag"
+  },
+  "navigationBarTitleText": "选择收货地址"
+}

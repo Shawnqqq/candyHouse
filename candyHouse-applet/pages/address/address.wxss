@@ -1,0 +1,47 @@
+.address-banner{
+  height: 80rpx;
+  position: relative;
+}
+.banner-create{
+  position: absolute;
+  top:20rpx;
+  right: 30rpx;
+  font-size: 26rpx;
+  color: #555;
+}
+.address-list{
+  border-top: 25rpx solid #F5F5F5;
+}
+.address-item{
+  border-bottom: 25rpx solid #F5F5F5;
+}
+.address-content{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.4;
+  height: auto;
+  padding: 15rpx 30rpx;
+  box-sizing: border-box;
+}
+.address{
+  color: #000;
+}
+.address-desc,.address-phone{
+  margin: 0 20rpx;
+}
+.address-tag{
+  margin-right: 20rpx;
+}
+.van-swipe-cell__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130rpx;
+  height: auto;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+  background-color: #f44;
+}
