@@ -43,16 +43,16 @@
   background-color: #FF69B4;
 }
 .product{
-  background-color: #F5F5F5;
+  background-color: #fff;
   width: 80%;
   box-sizing: border-box;
 }
 .product-item{
   height: 220rpx;
-  margin-bottom: 2rpx;
   padding: 10rpx 0;
   display: flex;
   background-color: #fff;
+  border-bottom: 2rpx solid #F5F5F5;
 }
 .product-image{
   width: 200rpx;
@@ -102,5 +102,10 @@
 }
 .price{
   font-size: 30rpx;
-  margin-left: 5rpx;
+  margin: 0 15rpx 0 5rpx;
+}
+.price-origin{
+  font-size: 24rpx;
+  color: #A9A9A9;
+  text-decoration: line-through;
 }

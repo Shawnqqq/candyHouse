@@ -1,0 +1,56 @@
+<view class="container">
+  <view class="column-section" wx:if="{{!loading}}" style="background-color:{{backColor}}">
+    <editor
+      style="height:auto"
+      id="column-editor"
+      read-only
+      bindready="onEditorReady">
+    </editor>
+    <view class="column-content" style="width:90%">
+      <view class="product-item">
+        <image class="product-image" 
+          mode="widthFix"
+          src="https://m.360buyimg.com/babel/s384x384_jfs/t1/16173/28/10796/144843/5c8a19b1Edaf602b2/c1d236361546546f.jpg!q70.dpg"></image> 
+        <view class="product-name">鲜美来 冷冻新鲜虾滑150g 袋装 火锅丸子 火锅食材 海鲜水产</view>
+        <view class="product-price">
+          <text class="price">¥228</text>
+          <text class="price-origin">￥266</text>
+        </view>
+      </view>
+      <view class="product-item">
+        <image class="product-image" 
+          mode="widthFix"
+          src="https://m.360buyimg.com/babel/s384x384_jfs/t1/52539/21/11776/396750/5d89c8ccE2b61f073/18d5f9ed037d26d4.jpg!q70.dpg"></image> 
+        <view class="product-name">美加佳 冷冻三去章鱼 八爪鱼 500g 火锅烧烤食材 自营海鲜水产</view>
+        <view class="product-price">
+          <text class="price">¥49.90</text>
+        </view>
+      </view>
+      <view class="product-item">
+        <image class="product-image" 
+          mode="widthFix"
+          src="https://m.360buyimg.com/babel/s384x384_jfs/t1/74154/5/14168/288033/5db67c5eE1e5a2afa/98510ccd00ef9b9b.jpg!q70.dpg"></image> 
+        <view class="product-name">鲜逢 即食蟹肉棒柳 240g 火锅丸子料关东煮烧烤食材 海鲜生鲜</view>
+        <view class="product-price">
+          <text class="price">¥27.90</text>
+          <text class="price-origin">￥36.50</text>
+        </view>
+      </view>
+      <view class="product-item">
+        <image class="product-image" 
+          mode="widthFix"
+          src="https://m.360buyimg.com/babel/s384x384_jfs/t1/70688/39/12555/433191/5d9d9629E48e8dd32/f6fc36d27e5c31b0.jpg!q70.dpg"></image> 
+        <view class="product-name">【活蟹】今锦上 鲜活大闸蟹 公蟹4.7-5.0两 母蟹2.8-3.1两 4对8只 3888型现货螃蟹礼盒 海鲜水产</view>
+        <view class="product-price">
+          <text class="price">¥479.50</text>
+          <text class="price-origin">￥469.90</text>
+        </view>
+      </view>
+    </view>
+    <view class="column-footer">滑到最底部了~</view>
+  </view>
+  <view class="loading-section" wx:else >
+    <image src="../../image/loading.gif" mode="widthFix" class="loading"></image>
+    <view class="loading-text">loading ...</view>
+  </view>
+</view>

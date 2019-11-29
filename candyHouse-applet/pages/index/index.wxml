@@ -93,6 +93,7 @@
             <view class="product-price">
               ¥<text class="price">328</text>
             </view>
+            <view class="price-origin">¥ 368</view>
             <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
           </view>
           <view class="product-item">
@@ -100,10 +101,10 @@
               mode="widthFix"
               src="https://img.alicdn.com/imgextra/i2/6000000002361/TB2RqCkylyWBuNkSmFPXXXguVXa_!!6000000002361-0-at.jpg_300x1000Q50s50.jpg_.webp"></image> 
             <view class="product-name">美素佳儿3段奶粉900g</view>
-            <text class="product-lable">满199减50</text>
             <view class="product-price">
               ¥<text class="price">188</text>
             </view>
+            <view class="price-origin">¥ 368</view>
             <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
           </view>
           <view class="product-item">
@@ -114,6 +115,7 @@
             <view class="product-price">
               ¥<text class="price">153</text>
             </view>
+            <view class="price-origin">¥ 368</view>
             <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
           </view>
           <view class="product-item">

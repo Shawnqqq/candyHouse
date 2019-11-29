@@ -1,10 +1,62 @@
 <view class="container">
-  <van-cell-group>
-    <van-field
-      value="{{ value }}"
-      placeholder="请输入用户名"
-      border="{{ false }}"
-      bind:change="onChange"
-    />
-  </van-cell-group>
+  <view class="banner">
+    <image class="avatar" 
+      mode="widthFix"
+      src="../../image/avatar.png"></image>
+    <view class="banner-content" wx:if="{{login}}">
+      <view class="nickName">春日野穹</view>
+      <view class="welcomes">你好，尊敬的春日野穹~</view>
+    </view>
+    <view class="banner-content" wx:else>
+      <view class="login">点击登录</view>
+    </view>
+    <view class="banner-footer">
+      <view class="lable-item">
+        <van-icon name="diamond-o" size="38rpx" color="#E9CA8D" custom-style="margin:15rpx 10rpx 0 0"/>
+        <view>自营品牌</view>
+      </view>
+      <view class="lable-item">
+        <van-icon name="after-sale" size="38rpx" color="#E9CA8D" custom-style="margin:15rpx 10rpx 0 0"/>
+        <view>全网比价</view>
+      </view>
+      <view class="lable-item">
+        <van-icon name="certificate" size="38rpx" color="#E9CA8D" custom-style="margin:15rpx 10rpx 0 0"/>
+        <view>正品保障</view>
+      </view>
+    </view>
+  </view>
+  <view class="body">
+    <view class="handle">
+      <view class="all">
+        <view class="all-title">我的订单</view>
+        <view class="all-btn">全部订单 ></view>
+      </view>
+      <view class="order">
+        <view class="order-item">
+          <van-icon size="50rpx" 
+            dot 
+            color="#FF1493"
+            info="1"  
+            name="send-gift-o" />
+          <view class="order-title">待发货</view>
+        </view>
+        <view class="order-item">
+          <van-icon size="50rpx" 
+            dot 
+            color="#FF1493"
+            info="1"  
+            name="logistics" />
+          <view class="order-title">配送中</view>
+        </view>
+        <view class="order-item">
+          <van-icon size="50rpx" 
+            dot 
+            color="#FF1493"
+            info="1"  
+            name="goods-collect-o" />
+          <view class="order-title">已送达</view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

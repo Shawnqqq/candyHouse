@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "van-field": "vant-weapp/field"
-  }
+    "van-field": "vant-weapp/field",
+    "van-icon": "vant-weapp/icon"
+  },
+  "navigationBarTitleText": "糖果屋"
 }

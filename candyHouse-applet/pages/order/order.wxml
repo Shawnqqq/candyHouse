@@ -1,0 +1,65 @@
+<view class="container">
+  <view class="address-section">
+    <view class="address-container">
+      <view class="address-content">
+        <view class="address">扎克斯宇宙中心 46号</view>
+        <view class="address-desc">右转第二个门口</view>
+      </view>
+      <view class="address-content">
+        <view class="address-user">蝴蝶忍</view>
+        <view class="address-phone">13112808045</view>
+      </view>
+    </view>
+    <view class="address-more">></view>
+    <image class="address-footer" mode="widthFix" src="../../image/zip.png"></image>
+  </view>
+  <view class="order">
+    <view class="order-item">
+      <image class="order-image" mode="widthFix"  src="https://m.360buyimg.com/mobilecms/s1215x1215_jfs/t1/10502/6/12920/109545/5c7e4e17Eb146970b/5ca65a38d2b0ee80.jpg!q70.dpg.webp"></image>
+      <view class="order-content">
+        <view class="order-name">Orijen原始猎食渴望爱猫鸡肉猫粮小猫进口无谷天然粮成猫幼猫小猫主粮 1.8kg*2包 无谷鸡肉全猫粮</view>
+        <view class="order-name order-sku">六种鱼猫粮/1KG</view>
+        <view class="order-freight">运费：￥10</view>
+      </view>
+      <view class="order-count">
+        <view class="order-price">￥
+          <text class="price">522</text>
+        </view>
+        <view class="num">× 1</view>
+      </view>
+    </view>
+    <view class="order-item">
+      <image class="order-image" mode="widthFix"  src="https://m.360buyimg.com/mobilecms/s1215x1215_jfs/t1/10502/6/12920/109545/5c7e4e17Eb146970b/5ca65a38d2b0ee80.jpg!q70.dpg.webp"></image>
+      <view class="order-content">
+        <view class="order-name">Orijen原始猎食渴望爱猫鸡肉猫粮小猫进口无谷天然粮成猫幼猫小猫主粮 1.8kg*2包 无谷鸡肉全猫粮</view>
+        <view class="order-name order-sku">六种鱼猫粮/1KG</view>
+        <view class="order-freight">运费：￥10</view>
+      </view>
+      <view class="order-count">
+        <view class="order-price">￥
+          <text class="price">522</text>
+        </view>
+        <view class="num">× 1</view>
+      </view>
+    </view>
+    <view class="order-detail">
+      <view class="order-detail-title">商品金额</view>
+      <view class="order-detail-price">￥522.50</view>
+    </view>
+    <view class="order-detail">
+      <view class="order-detail-title">优惠金额</view>
+      <view class="order-detail-favourable">-￥50.00</view>
+    </view>
+    <view class="order-detail">
+      <view class="order-detail-title">运费</view>
+      <view class="order-detail-price">￥10.00</view>
+    </view>
+    <view class="total">小计：￥472.50</view>
+  </view>
+  <view class="submit">
+    <view class="submit-total">待支付：
+      <text class="submit-total-num">￥472.50</text>
+    </view>
+    <view class="submit-btn">确认下单</view>
+  </view>
+</view>

@@ -1,12 +1,14 @@
 {
   "pages": [
-    "pages/category/category",
-    "pages/cart/cart",
-    "pages/createAddress/createAddress",
-    "pages/address/address",
-    "pages/product/product",
     "pages/index/index",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/order/order",
+    "pages/cart/cart",
+    "pages/product/product",
+    "pages/createAddress/createAddress",
+    "pages/column/column",
+    "pages/category/category",
+    "pages/address/address"
   ],
   "window": {
     "backgroundTextStyle": "light",

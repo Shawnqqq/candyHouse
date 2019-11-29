@@ -1,6 +1,17 @@
 .container{
   position: relative;
 }
+.return{
+  position: absolute;
+  top: 20rpx;
+  z-index: 10;
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #69696970;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .banner{
   margin-top: 40rpx;
   position: relative;
@@ -185,4 +196,19 @@
   font-size: 30rpx;
   color: #333;
   line-height: 2;
+}
+.loading-section{
+  padding-top: 400rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loading{
+  display: block;
+  width: 250rpx;
+  margin: 0 auto;
+}
+.loading-text{
+  font-size: 36rpx;
+  margin-top: 30rpx;
 }

@@ -1,116 +1,125 @@
 <view class="container">
-  <view class="banner">
-    <swiper
-      class="swiper"
-      autoplay
-      circular
-      duration="1000"
-      bindchange="handleSwiper">
-      <swiper-item>
-        <view class="swiper-item">
-          <image class="swiper-item-image" 
-          mode="aspectFill"
-          src="https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/28117/32/4598/423868/5c331ca8E1da6601a/1578c9fed571e4d7.jpg!q80.dpg"></image>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="swiper-item">
-          <image class="swiper-item-image" 
-          mode="aspectFill"
-          src="https://m.360buyimg.com/mobilecms/s1265x1265_jfs/t1/35748/5/2244/260454/5cb6d40fE01473529/ef901434dac54c3b.jpg!q70.dpg.webp"></image>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="swiper-item">
-          <image class="swiper-item-image" 
-          mode="aspectFill"
-          src="https://m.360buyimg.com/mobilecms/s1265x1265_jfs/t18214/200/1047675291/128040/4a609429/5ab86d89N9c7739d4.jpg!q70.dpg.webp"></image>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="swiper-item">
-          <image class="swiper-item-image" 
-          mode="aspectFill"
-          src="https://m.360buyimg.com/mobilecms/s1265x1265_jfs/t8065/278/2257612121/256687/faacdff3/59cdadccN2e15bae2.jpg!q70.dpg.webp"></image>
-        </view>
-      </swiper-item>
-    </swiper>
-    <view class="current">{{current}}/4</view>
+  <view class="return" bindtap="handlereturn">
+    <van-icon name="arrow-left" size="45rpx"/>
   </view>
-  <view class="main">
-    <view class="name">【官网授权 12磅到手579】Orijen原始猎食渴望爱猫鸡肉猫粮小猫进口无谷天然粮成猫幼猫小猫主粮 1.8kg*2包 无谷鸡肉全猫粮</view>
-    <view class="desc">官网授权，三标验证，保税仓直发~百利猫罐头，猫/狗健康能量包上新，补充营养~</view>
-    <view class="price">￥<text class="price-num">599.00</text>
-      <text class="price-through">￥699.00</text>
+  <view class="product-section" wx:if="{{!loading}}">
+    <view class="banner">
+      <swiper
+        class="swiper"
+        autoplay
+        circular
+        duration="1000"
+        bindchange="handleSwiper">
+        <swiper-item>
+          <view class="swiper-item">
+            <image class="swiper-item-image" 
+            mode="aspectFill"
+            src="https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/28117/32/4598/423868/5c331ca8E1da6601a/1578c9fed571e4d7.jpg!q80.dpg"></image>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view class="swiper-item">
+            <image class="swiper-item-image" 
+            mode="aspectFill"
+            src="https://m.360buyimg.com/mobilecms/s1265x1265_jfs/t1/35748/5/2244/260454/5cb6d40fE01473529/ef901434dac54c3b.jpg!q70.dpg.webp"></image>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view class="swiper-item">
+            <image class="swiper-item-image" 
+            mode="aspectFill"
+            src="https://m.360buyimg.com/mobilecms/s1265x1265_jfs/t18214/200/1047675291/128040/4a609429/5ab86d89N9c7739d4.jpg!q70.dpg.webp"></image>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view class="swiper-item">
+            <image class="swiper-item-image" 
+            mode="aspectFill"
+            src="https://m.360buyimg.com/mobilecms/s1265x1265_jfs/t8065/278/2257612121/256687/faacdff3/59cdadccN2e15bae2.jpg!q70.dpg.webp"></image>
+          </view>
+        </swiper-item>
+      </swiper>
+      <view class="current">{{current}}/4</view>
     </view>
-    <view class="sold">已售 7598</view>
-  </view>
-  <view class="detail">
-    <view class="detail-title">优惠</view>
-    <view class="detail-text">
-      <view class="detail-lable">满199减50</view>
+    <view class="main">
+      <view class="name">【官网授权 12磅到手579】Orijen原始猎食渴望爱猫鸡肉猫粮小猫进口无谷天然粮成猫幼猫小猫主粮 1.8kg*2包 无谷鸡肉全猫粮</view>
+      <view class="desc">官网授权，三标验证，保税仓直发~百利猫罐头，猫/狗健康能量包上新，补充营养~</view>
+      <view class="price">￥<text class="price-num">599.00</text>
+        <text class="price-through">￥699.00</text>
+      </view>
+      <view class="sold">已售 7598</view>
     </view>
-  </view>
-  <view class="detail">
-    <view class="detail-title">配送</view>
-    <view class="detail-text">24小时内发货，免运费</view>
-  </view>
-  <view class="detail" bindtap="sheetShow">
-    <view class="detail-title">已选</view>
-    <view class="detail-text">{{skuCurrent.name}},{{skuNum}}个</view>
-  </view>
-  <view class="product-content">
-    <editor
-      style="height:auto"
-      id="product-editor"
-      read-only
-      bindready="onEditorReady">
-    </editor>
-  </view>
-  <navigator class="add-cart" open-type="switchTab" url="/pages/cart/cart">
-    <van-icon name="shopping-cart-o"
-      dot
-      info="1"
-      size="45rpx" 
-      custom-style="margin:0 70rpx 0 60rpx"/>
-    <view class="add-btn">加入购物车</view>
-  </navigator>
-  <van-action-sheet
-    show="{{show}}"
-    bind:close="sheetClose">
-    <view class="sheet-container">
-      <view class="sheet-close" bindtap="sheetClose">
-        <van-icon name="cross" size="40rpx" color="#999"/>
+    <view class="detail">
+      <view class="detail-title">优惠</view>
+      <view class="detail-text">
+        <view class="detail-lable">满199减50</view>
       </view>
-      <view class="sheet-banner">
-        <image class="sheet-image" mode="widthFix" src="{{skuCurrent.img}}"></image>
-        <view class="sheet-select">
-          <view class="sheet-price">￥{{skuCurrent.price}}</view>
-          <view class="sheet-selected"><text class="sheet-title">已选</text> {{skuCurrent.name}},{{skuNum}}个</view>
-          <view class="sheet-selected"><text class="sheet-title">库存</text> {{skuCurrent.stock}}</view>
-        </view>
-      </view>
-      <view class="sheet-option">
-        <view class="sheet-title">规格</view>
-        <view class="sheet-option-list">
-          <view class="sheet-opiton-item {{index===skuIndex ? 'active' : ''}}" 
-            wx:for="{{sku}}" 
-            wx:key="index"
-            data-index="{{index}}"
-            bindtap="changeSKU">{{item.name}}</view>
-        </view>
-      </view>
-      <view class="sheet-num">
-        <view class="sheet-title">数量</view>
-        <view class="sheet-num-handle">
-          <van-stepper 
-            input-width="100rpx"
-            button-size="100rpx"
-            value="{{skuNum}}" 
-            bind:change="changeNum"/>
-        </view>
-      </view>
-      <view class="sheet-add">加入购物车</view>
     </view>
-  </van-action-sheet>
+    <view class="detail">
+      <view class="detail-title">配送</view>
+      <view class="detail-text">24小时内发货，免运费</view>
+    </view>
+    <view class="detail" bindtap="sheetShow">
+      <view class="detail-title">已选</view>
+      <view class="detail-text">{{skuCurrent.name}},{{skuNum}}个</view>
+    </view>
+    <view class="product-content">
+      <editor
+        style="height:auto"
+        id="product-editor"
+        read-only
+        bindready="onEditorReady">
+      </editor>
+    </view>
+    <navigator class="add-cart" open-type="switchTab" url="/pages/cart/cart">
+      <van-icon name="shopping-cart-o"
+        dot
+        info="1"
+        size="45rpx" 
+        custom-style="margin:0 70rpx 0 60rpx"/>
+      <view class="add-btn">加入购物车</view>
+    </navigator>
+    <van-action-sheet
+      show="{{show}}"
+      bind:close="sheetClose">
+      <view class="sheet-container">
+        <view class="sheet-close" bindtap="sheetClose">
+          <van-icon name="cross" size="40rpx" color="#999"/>
+        </view>
+        <view class="sheet-banner">
+          <image class="sheet-image" mode="widthFix" src="{{skuCurrent.img}}"></image>
+          <view class="sheet-select">
+            <view class="sheet-price">￥{{skuCurrent.price}}</view>
+            <view class="sheet-selected"><text class="sheet-title">已选</text> {{skuCurrent.name}},{{skuNum}}个</view>
+            <view class="sheet-selected"><text class="sheet-title">库存</text> {{skuCurrent.stock}}</view>
+          </view>
+        </view>
+        <view class="sheet-option">
+          <view class="sheet-title">规格</view>
+          <view class="sheet-option-list">
+            <view class="sheet-opiton-item {{index===skuIndex ? 'active' : ''}}" 
+              wx:for="{{sku}}" 
+              wx:key="index"
+              data-index="{{index}}"
+              bindtap="changeSKU">{{item.name}}</view>
+          </view>
+        </view>
+        <view class="sheet-num">
+          <view class="sheet-title">数量</view>
+          <view class="sheet-num-handle">
+            <van-stepper 
+              input-width="100rpx"
+              button-size="100rpx"
+              value="{{skuNum}}" 
+              bind:change="changeNum"/>
+          </view>
+        </view>
+        <view class="sheet-add">加入购物车</view>
+      </view>
+    </van-action-sheet>
+  </view>
+  <view class="loading-section" wx:else>
+    <image src="../../image/loading.gif" mode="widthFix" class="loading"></image>
+    <view class="loading-text">loading ...</view>
+  </view>
 </view>

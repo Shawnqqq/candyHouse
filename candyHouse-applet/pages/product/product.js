@@ -1,5 +1,6 @@
 Page({
   data: {
+    loading:false,
     show:false,
     current:1,
     editor: "<p><img src='https://jdimage.300hu.com/vodtransgzp1251412368/7447398155594455924/1524309527_2929062424.100_0.jpg'><p><img                  src='https://img10.360buyimg.com/imgzone/jfs/t11773/208/2584217843/383223/e328f5ec/5a939e11N5c8bf027.jpg!q70.dpg.webp'></p><p><img src='https://img11.360buyimg.com/imgzone/jfs/t1/5780/20/6560/479708/5ba300f5Eccdb41c1/b0b0af4336663603.png!q70.webp'></p><p><img src='https://img30.360buyimg.com/imgzone/jfs/t1/700/21/6775/497958/5ba300f5E62381870/290c8f4970428e69.png!q70.webp'></p>",
@@ -36,6 +37,11 @@ stock: "8223"}],
         html: this.data.editor
       })
     }).exec()
+  },
+  handlereturn(){
+    wx.navigateBack({
+      delta: 1
+    })
   },
   sheetClose(){
     this.setData({ show: false });

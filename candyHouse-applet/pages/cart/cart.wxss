@@ -124,3 +124,7 @@
   color: #D86770;
   margin-left: 20rpx;
 }
+.freight{
+  font-size: 25rpx;
+  color: #FF69B4;
+}

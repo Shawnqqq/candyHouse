@@ -13,9 +13,7 @@
         <van-card
           custom-class="order-card"
           price="522.00"
-          origin-price="588.00"
           price-class="order-price"
-          origin-price-class="order-origin-price"
           desc="5.4kg"
           desc-class="order-desc"
           title="渴望 (Orijen) 鸡肉味 5.4kg 猫粮"
@@ -71,6 +69,8 @@
             <view class="reduce">-</view>
             <view class="num">1</view>
             <view class="add">+</view>
+          </view>
+          <view slot="bottom" class="order-item-button">
           </view>
         </van-card>
       </view>

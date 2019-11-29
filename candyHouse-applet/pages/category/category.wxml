@@ -28,14 +28,14 @@
         <view class="product-content">
           <view class="product-name">百瑞源 宁夏中宁枸杞子甲级500g/袋</view>
           <view class="product-desc">配料只有黑芝麻蜂蜜纯天然老少皆宜</view>
-          <text class="product-lable">满99-20</text>
           <view class="product-price">
             ¥<text class="price">52.9</text>
+            <text class="price-origin">¥ 368</text>
           </view>
           <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
         </view>
       </view>
-      <view class="product-item">
+      <!-- <view class="product-item">
         <image class="product-image"
           mode="widthFix"
           src="https://m.360buyimg.com/n1/s333x333_jfs/t1/28002/9/14924/312465/5cab1248E9a87f97f/c97db8b6ca688f10.jpg!q70.webp"></image>
@@ -87,7 +87,15 @@
           </view>
           <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
         </view>
-      </view>
+      </view> -->
+      <van-skeleton
+        wx:for="{{4}}"
+        wx:key="index"
+        class="product-item" 
+        title 
+        avatar
+        avatar-size="130rpx"
+        row="3" />
     </scroll-view>
   </view>
 </view>
