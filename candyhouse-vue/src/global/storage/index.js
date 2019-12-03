@@ -53,12 +53,12 @@ class DataStore {
     this.storage.set("name", name);
   }
 
-  getStatus(){
+  getStatus() {
     return this.storage.get("status");
   }
 
-  setStatus(status){
-    this.storage.set("status",status)
+  setStatus(status) {
+    this.storage.set("status", status);
   }
 
   clear() {

@@ -24,7 +24,6 @@
           </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
-
       <el-menu-item
         v-else
         :key="route.path"
@@ -42,6 +41,8 @@
 
 <script>
 import routes from "@/router/router";
+import DataStore from "@/global/storage/index";
+
 export default {
   props: {
     collapse: {
@@ -78,6 +79,11 @@ export default {
           };
           if (data.children) {
             item.children = this.filterNavigator(data.children);
+          }
+          if (item.name === "managerRoot") {
+            let status = DataStore.getStatus();
+            status == 0 ? result.push(item) : "";
+            return;
           }
           result.push(item);
         } else if (data.children) {

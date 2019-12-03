@@ -1,7 +1,7 @@
 <template>
   <div class="sider-section">
     <div class="sider-title">
-      <img src="@/assets/logo.png" class="sider-logo">
+      <img src="@/assets/logo.png" class="sider-logo" />
       <p class="sider-text">糖果屋</p>
     </div>
     <Menu />
@@ -39,7 +39,7 @@ export default {
       width: 40px;
       height: 40px;
     }
-    .sider-text{
+    .sider-text {
       font-size: 18px;
       color: #555;
       margin-left: 10px;

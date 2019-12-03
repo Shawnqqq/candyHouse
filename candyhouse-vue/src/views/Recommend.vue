@@ -1,5 +1,5 @@
 <template>
-  <div class="container">DashBorad</div>
+  <div class="container">recommend</div>
 </template>
 
 <script>

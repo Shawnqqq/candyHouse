@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style>
+<style lang="less">
 * {
   margin: 0;
   padding: 0;
@@ -23,5 +23,14 @@ body {
 #nav {
   height: 100%;
   width: 100%;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  .title {
+    font-size: 16px;
+    font-weight: 500;
+  }
 }
 </style>

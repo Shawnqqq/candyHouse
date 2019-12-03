@@ -6,6 +6,8 @@ const API = {
   login: `${PREFIX}/authLogin`,
   manager: `${PREFIX}/manager`,
   managerItem: id => `${PREFIX}/manager/${id}`,
+  category: `${PREFIX}/category`,
+  categoryItem: id => `${PREFIX}/category/${id}`
 };
 
 export default API;

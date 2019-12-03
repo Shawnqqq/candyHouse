@@ -55,7 +55,7 @@ export default {
   .page-mainer {
     display: flex;
     flex-direction: column;
-    background-color: #f0f7fa;
+    background-color: #ecf0f4;
     width: 100%;
     padding: 0px;
     .page-header {

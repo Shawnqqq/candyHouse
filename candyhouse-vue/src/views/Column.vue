@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header">
-      <div class="title">分类推荐管理</div>
+      <div class="title">合辑推荐管理</div>
       <el-button type="primary" @click="handleInsert">添加</el-button>
     </div>
     <div class="body"></div>

@@ -3,9 +3,11 @@
     class="breadcrumb-section"
     v-if="breadcrumbValue.length || title || description"
   >
-    <el-breadcrumb class="breadcrumb-list" 
-      separator-class="el-icon-arrow-right" 
-      v-if="breadcrumbValue.length">
+    <el-breadcrumb
+      class="breadcrumb-list"
+      separator-class="el-icon-arrow-right"
+      v-if="breadcrumbValue.length"
+    >
       <template v-for="item in breadcrumbValue">
         <el-breadcrumb-item
           v-if="item.to"

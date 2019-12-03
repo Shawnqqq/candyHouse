@@ -3,16 +3,8 @@
     <div class="login">
       <h1>login</h1>
       <form>
-        <input
-          type="text"
-          placeholder="Username"
-          v-model="phone"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          v-model="password"
-        />
+        <input type="text" placeholder="Username" v-model="phone" />
+        <input type="password" placeholder="Password" v-model="password" />
         <button type="button" class="submit-btn" @click="handSubmit">
           Let me in.
         </button>
@@ -42,18 +34,18 @@ export default {
     handSubmit() {
       let phone = this.phone;
       let password = this.password;
-      if(!phone || !password){
-        return this.$message.error('请输入手机号和密码');
+      if (!phone || !password) {
+        return this.$message.error("请输入手机号和密码");
       }
-      authLoginService.login({phone,password}).then(res=>{
-        if(res.code === 0){
+      authLoginService.login({ phone, password }).then(res => {
+        if (res.code === 0) {
           return this.$message.error(res.message);
         }
-        DataStore.setToken(res.data.token)
-        DataStore.setName(res.data.name)
-        DataStore.setStatus(res.data.status)
+        DataStore.setToken(res.data.token);
+        DataStore.setName(res.data.name);
+        DataStore.setStatus(res.data.status);
         this.$router.replace({ name: "Dashboard" });
-      })
+      });
     }
   }
 };

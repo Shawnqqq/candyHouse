@@ -8,7 +8,7 @@ const qiniu = {
   upload: function(file) {
     return new Promise(resolve => {
       this.qiniu().then(res => {
-        const key = "parenting/banner/" + Date.now() + "_" + file.name;
+        const key = "candyHouse/" + Date.now() + "_" + file.name;
         let token = res.token;
         let domain = res.domain;
         let formData = new FormData();
