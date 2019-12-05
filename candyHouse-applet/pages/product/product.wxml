@@ -71,14 +71,16 @@
         bindready="onEditorReady">
       </editor>
     </view>
-    <navigator class="add-cart" open-type="switchTab" url="/pages/cart/cart">
-      <van-icon name="shopping-cart-o"
-        dot
-        info="1"
-        size="45rpx" 
-        custom-style="margin:0 70rpx 0 60rpx"/>
+    <view class="add-cart">
+      <navigator open-type="switchTab" url="/pages/cart/cart">
+        <van-icon name="shopping-cart-o"
+          dot
+          info="1"
+          size="45rpx" 
+          custom-style="margin:0 70rpx 0 60rpx"/>
+      </navigator>
       <view class="add-btn">加入购物车</view>
-    </navigator>
+    </view>
     <van-action-sheet
       show="{{show}}"
       bind:close="sheetClose">

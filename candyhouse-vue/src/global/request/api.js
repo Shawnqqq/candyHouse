@@ -7,7 +7,9 @@ const API = {
   manager: `${PREFIX}/manager`,
   managerItem: id => `${PREFIX}/manager/${id}`,
   category: `${PREFIX}/category`,
-  categoryItem: id => `${PREFIX}/category/${id}`
+  categoryItem: id => `${PREFIX}/category/${id}`,
+  goods: `${PREFIX}/goods`,
+  goodsItem: id => `${PREFIX}/goods/${id}`
 };
 
 export default API;
