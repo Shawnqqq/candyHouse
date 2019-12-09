@@ -1,12 +1,16 @@
 <template>
   <div class="container">
     <div class="header">
-      <div class="title">商品添加</div>
+      <div class="title">商品详情</div>
+      <el-button type="info" @click="handleReturn">返回</el-button>
     </div>
     <div class="body">
       <div class="block">
         <div class="tips">
-          展示图请选择方正图片，点击图片进行更换；划线价可填可不填哟；展示金额不带小数点
+          <p>
+            展示图请选择方正图片，点击图片进行更换；划线价可填可不填哟；展示金额不带小数点
+          </p>
+          <el-button type="text" @click="handleDelete">删除</el-button>
         </div>
         <div class="show-image">
           <el-upload
@@ -79,6 +83,7 @@
               </el-select>
             </el-form-item>
           </el-form>
+          <div class="sold">* 已售： {{ ruleForm.sold }}</div>
         </div>
         <div class="block-half">
           <div class="rich-text">
@@ -162,6 +167,9 @@
                   <el-form-item label="库存" prop="stock" style="width:100%;">
                     <el-input v-model="item.stock"></el-input>
                   </el-form-item>
+                  <el-form-item label="* 已售" prop="sold" style="width:100%;">
+                    <el-input v-model="item.sold" :disabled="true"></el-input>
+                  </el-form-item>
                 </el-form>
               </div>
             </el-card>
@@ -169,7 +177,7 @@
         </el-row>
       </div>
       <div class="submit-btn">
-        <el-button type="success" @click="handleSubmit()">确认添加</el-button>
+        <el-button type="success" @click="handleEdit()">确认修改</el-button>
       </div>
     </div>
   </div>
@@ -238,7 +246,8 @@ export default {
         price_origin: "",
         name: "",
         description: "",
-        category_id: ""
+        category_id: "",
+        sold: ""
       },
       content: "",
       fileList: [],
@@ -252,6 +261,7 @@ export default {
           sold: 0
         }
       ],
+      deleteSku: [],
       lock: true,
       rules: {
         price: [{ required: true, message: "请输入金额", trigger: "blur" }],
@@ -278,6 +288,23 @@ export default {
     };
   },
   created() {
+    let id = this.$route.params.id;
+    goodsService.single(id).then(res => {
+      if (!res.data) {
+        this.$message.error("出错了，请返回商品列表");
+        return;
+      }
+      this.imageUrl = res.data.goods.image_url;
+      this.ruleForm.name = res.data.goods.name;
+      this.ruleForm.price = res.data.goods.price;
+      this.ruleForm.price_origin = res.data.goods.price_origin;
+      this.ruleForm.sold = res.data.goods.sold;
+      this.ruleForm.description = res.data.goods.description;
+      this.ruleForm.category_id = Number(res.data.goods.category_id);
+      this.content = res.data.goods.content;
+      this.fileList = res.data.goods.banner;
+      this.sku = res.data.sku;
+    });
     categoryService.list().then(res => {
       this.category_value = res.data;
     });
@@ -289,6 +316,9 @@ export default {
         this.$message.error("上传图片大小不能超过 2MB!");
       }
       return isLt2M;
+    },
+    handleReturn() {
+      this.$router.push({ name: "goods" });
     },
     handleCover(files) {
       qiniuService.upload(files.file).then(res => {
@@ -331,7 +361,11 @@ export default {
         type: "warning"
       })
         .then(() => {
+          let sku_id = this.sku[index].id;
           this.sku.splice(index, 1);
+          if (sku_id) {
+            this.deleteSku.push(sku_id);
+          }
         })
         .catch(() => {
           this.$message({
@@ -340,7 +374,7 @@ export default {
           });
         });
     },
-    handleSubmit() {
+    handleEdit() {
       let verify1 = new Promise(resolve => {
         this.$refs.priceForm.validate(valid => {
           if (valid) {
@@ -387,20 +421,48 @@ export default {
           banner: this.fileList,
           content: this.content,
           image_url: this.imageUrl,
-          sku: this.sku
+          sku: this.sku,
+          deleteSku: this.deleteSku
         };
-        goodsService.insert(params).then(res => {
+        let id = this.$route.params.id;
+        goodsService.update(id, params).then(res => {
           if (res.code === 200) {
             this.$message({
               message: res.message,
               type: "success"
             });
-            this.$router.push({ name: "goods" });
           } else {
             this.$message.error(res.message);
           }
         });
       });
+    },
+    handleDelete() {
+      this.$confirm("此操作将永久删除该SKU, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          let id = this.$route.params.id;
+          goodsService.delete(id).then(res => {
+            if (res.code === 200) {
+              this.$message({
+                message: res.message,
+                type: "success"
+              });
+              this.$router.push({ name: "goods" });
+            } else {
+              this.$message.error(res.message);
+            }
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除"
+          });
+        });
     }
   },
   components: {
@@ -419,6 +481,9 @@ export default {
     font-size: 14px;
     color: #a1aab2;
     margin: 10px 10px 30px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 .info {
@@ -441,6 +506,11 @@ export default {
         font-size: 14px;
         color: #606266;
       }
+    }
+    .sold {
+      font-size: 14px;
+      color: #606266;
+      margin: 30px;
     }
   }
 }

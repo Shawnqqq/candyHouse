@@ -9,7 +9,9 @@ const API = {
   category: `${PREFIX}/category`,
   categoryItem: id => `${PREFIX}/category/${id}`,
   goods: `${PREFIX}/goods`,
-  goodsItem: id => `${PREFIX}/goods/${id}`
+  goodsItem: id => `${PREFIX}/goods/${id}`,
+  goodsSoldOutItem: id => `${PREFIX}/goods/soldOut/${id}`,
+  goodsSoldItem: id => `${PREFIX}/goods/sold/${id}`
 };
 
 export default API;

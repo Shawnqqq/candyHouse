@@ -16,6 +16,8 @@ const Column = () => import(/* webpackChunkName: "Index" */ "@/views/Column");
 const Goods = () => import(/* webpackChunkName: "Goods" */ "@/views/Goods"); //商品管理
 const Category = () =>
   import(/* webpackChunkName: "Goods" */ "@/views/Category");
+const GoodsSingle = () =>
+  import(/* webpackChunkName: "Goods" */ "@/views/GoodsSingle");
 const Recommend = () =>
   import(/* webpackChunkName: "Goods" */ "@/views/Recommend");
 const GoodsCreate = () =>
@@ -169,6 +171,16 @@ export default [
               },
               breadcrumb: {
                 title: "商品列表"
+              }
+            }
+          },
+          {
+            path: "/admin/goodsSingle",
+            name: "goodsSingle",
+            component: GoodsSingle,
+            meta: {
+              breadcrumb: {
+                title: "商品详情"
               }
             }
           },

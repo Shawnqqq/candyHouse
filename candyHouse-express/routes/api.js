@@ -28,6 +28,11 @@ router.delete('/category/:id',middleAuth,categoryController.delete)
 // 商品与SKU接口
 router.post('/goods',middleAuth,goodsController.insert)
 router.get('/goods',middleAuth,goodsController.all)
+router.get('/goods/:id',middleAuth,goodsController.single)
+router.put('/goods/soldOut/:id',middleAuth,goodsController.soldOut)
+router.put('/goods/sold/:id',middleAuth,goodsController.sold)
+router.put('/goods/:id',middleAuth,goodsController.update)
+router.delete('/goods/:id',middleAuth,goodsController.delete)
 
 
 module.exports = router;
