@@ -8,6 +8,10 @@ const ManagerEdit = () =>
 const ManagerCreate = () =>
   import(/* webpackChunkName: "Manager" */ "@/views/ManagerCreate");
 const Index = () => import(/* webpackChunkName: "Index" */ "@/views/Index"); //首页管理
+const LandingCreate = () =>
+  import(/* webpackChunkName: "Index" */ "@/views/LandingCreate");
+const LandingSingle = () =>
+  import(/* webpackChunkName: "Index" */ "@/views/LandingSingle");
 const Banner = () => import(/* webpackChunkName: "Index" */ "@/views/Banner");
 const Poster = () => import(/* webpackChunkName: "Index" */ "@/views/Poster");
 const Classify = () =>
@@ -76,7 +80,7 @@ export default [
           {
             path: "/admin/index",
             name: "index",
-            component: Index,
+            component: { render: h => h("router-view") },
             meta: {
               nav: {
                 icon: "el-icon-star-off",
@@ -85,7 +89,34 @@ export default [
               breadcrumb: {
                 title: "活动页管理"
               }
-            }
+            },
+            children: [
+              {
+                path: "/admin/index",
+                name: "index",
+                component: Index
+              },
+              {
+                path: "/admin/landingCreate",
+                name: "landingCreate",
+                component: LandingCreate,
+                meta: {
+                  breadcrumb: {
+                    title: "活动页添加"
+                  }
+                }
+              },
+              {
+                path: "/admin/landingSingle",
+                name: "landingSingle",
+                component: LandingSingle,
+                meta: {
+                  breadcrumb: {
+                    title: "活动页详情"
+                  }
+                }
+              }
+            ]
           },
           {
             path: "/admin/banner",

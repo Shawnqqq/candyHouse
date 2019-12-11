@@ -51,7 +51,7 @@
         </van-card>
       </view>
       <view class="order-item">
-        <van-checkbox class="order-checkbox" name="b" checked-color="#FF69B4"></van-checkbox>
+        <van-checkbox class="order-checkbox" name="c" checked-color="#FF69B4"></van-checkbox>
         <van-card
           custom-class="order-card"
           price="5222.00"

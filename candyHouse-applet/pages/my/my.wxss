@@ -15,7 +15,7 @@
   left: -50%;
   z-index: -1;
   border-radius: 0 0 50% 50%;
-  background-image: linear-gradient(160deg, #F8E7C2,#FCBD8A);
+  background-image: linear-gradient(160deg, rgb(250, 94, 172),rgb(247, 217, 232));
 }
 .avatar{
   width: 150rpx;

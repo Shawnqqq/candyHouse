@@ -10,7 +10,7 @@
           v-model="select_category"
           placeholder="请选择分类"
           clearable
-          @change="onLoad"
+          @change="select"
         >
           <el-option
             v-for="item in category"
@@ -33,7 +33,9 @@
               <div class="item sold">已售：{{ item.sold }}</div>
               <div class="item price">
                 <div class="item-price">¥ {{ item.price }}</div>
-                <div class="item-price-origin">¥ {{ item.price_origin }}</div>
+                <div class="item-price-origin" v-if="item.price_origin">
+                  ¥ {{ item.price_origin }}
+                </div>
               </div>
               <div class="item handle">
                 <el-button type="text" @click="hanleSingle(item.id)"
@@ -74,7 +76,7 @@ export default {
     return {
       goodsData: [],
       pagination: {
-        pageSize: 10,
+        pageSize: 12,
         total: 0,
         nowPage: 1
       },
@@ -97,8 +99,12 @@ export default {
       };
       goodsService.list(params).then(res => {
         this.goodsData = res.data;
-        this.total = res.total;
+        this.pagination.total = res.total;
       });
+    },
+    select() {
+      this.pagination.nowPage = 1;
+      this.onLoad();
     },
     handleInsert() {
       this.$router.push({ name: "goodsCreate" });

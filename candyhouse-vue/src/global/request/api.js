@@ -11,7 +11,11 @@ const API = {
   goods: `${PREFIX}/goods`,
   goodsItem: id => `${PREFIX}/goods/${id}`,
   goodsSoldOutItem: id => `${PREFIX}/goods/soldOut/${id}`,
-  goodsSoldItem: id => `${PREFIX}/goods/sold/${id}`
+  goodsSoldItem: id => `${PREFIX}/goods/sold/${id}`,
+  recommend: `${PREFIX}/recommend`,
+  landing: `${PREFIX}/landing`,
+  landingItem: id => `${PREFIX}/landing/${id}`,
+  landingGoods: id => `${PREFIX}/landingGoods/${id}`
 };
 
 export default API;

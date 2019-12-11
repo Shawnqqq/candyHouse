@@ -54,7 +54,9 @@ const goodsController = {
         .column("*",{'id':'goods.id'},{'name':'goods.name'}, {'category_name':'category.name'})
         .offset(offset)
         .limit(pageSize)
-      let total = goods.length;
+      
+      let totals = await goodsModels.where(params)
+      let total = totals.length
       res.json({
         code:200,
         data:goods,

@@ -7,6 +7,8 @@ const qiniuController = require('../controllers/qiniu');
 const managerController = require('../controllers/manager')
 const categoryController = require('../controllers/category')
 const goodsController = require('../controllers/goods')
+const recommendController = require('../controllers/recommend')
+const landing_pageController = require('../controllers/landing')
 
 // 登录
 router.post('/authLogin',authController.login)
@@ -33,6 +35,17 @@ router.put('/goods/soldOut/:id',middleAuth,goodsController.soldOut)
 router.put('/goods/sold/:id',middleAuth,goodsController.sold)
 router.put('/goods/:id',middleAuth,goodsController.update)
 router.delete('/goods/:id',middleAuth,goodsController.delete)
-
+// 推荐商品
+router.post('/recommend',middleAuth,recommendController.insert)
+router.get('/recommend',middleAuth,recommendController.all)
+router.put('/recommend',middleAuth,recommendController.delete)
+// 活动页
+router.post('/landing',middleAuth,landing_pageController.insert)
+router.get('/landing',middleAuth,landing_pageController.all)
+router.put('/landing/:id',middleAuth,landing_pageController.update)
+router.get('/landing/:id',middleAuth,landing_pageController.single)
+router.post('/landingGoods/:id',middleAuth,landing_pageController.recommend)
+router.put('/landingGoods/:id',middleAuth,landing_pageController.unRecommend)
+router.delete('/landing/:id',middleAuth,landing_pageController.deleted)
 
 module.exports = router;

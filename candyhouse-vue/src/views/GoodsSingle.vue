@@ -8,7 +8,7 @@
       <div class="block">
         <div class="tips">
           <p>
-            展示图请选择方正图片，点击图片进行更换；划线价可填可不填哟；展示金额不带小数点
+            展示图请选择方正图片，点击图片进行更换；划线价可填可不填哟
           </p>
           <el-button type="text" @click="handleDelete">删除</el-button>
         </div>
@@ -195,7 +195,7 @@ import { quillEditor } from "vue-quill-editor";
 
 const uploadConfig = {
   name: "image_url",
-  size: 500, // 图片大小，单位为Kb, 1M = 1024Kb
+  size: 2048, // 图片大小，单位为Kb, 1M = 1024Kb
   accept: "image/png, image/gif, image/jpeg", // 可选 可上传的图片格式
   QINIU_API: "http://upload-z2.qiniup.com"
 };
