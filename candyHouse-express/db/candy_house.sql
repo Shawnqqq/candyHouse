@@ -11,7 +11,7 @@
  Target Server Version : 100316
  File Encoding         : 65001
 
- Date: 11/12/2019 23:14:05
+ Date: 16/12/2019 22:53:16
 */
 
 SET NAMES utf8mb4;
@@ -43,10 +43,20 @@ CREATE TABLE `address`  (
 DROP TABLE IF EXISTS `banner_index`;
 CREATE TABLE `banner_index`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `image_url` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
   `page_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `options` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of banner_index
+-- ----------------------------
+INSERT INTO `banner_index` VALUES (1, 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576408067004_banner-1.webp', '/pages/product/product?id=3', '[\"/pages/product/product?id=\",1,3]');
+INSERT INTO `banner_index` VALUES (2, 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576408259373_banner-3.webp', '/pages/column/column?id=2', '[\"/pages/column/column?id=\",2]');
+INSERT INTO `banner_index` VALUES (3, 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576408678098_banner-2.webp', '/pages/product/product?id=3', '[\"/pages/product/product?id=\",1,3]');
+INSERT INTO `banner_index` VALUES (5, 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576419033242_banner-4.webp', '/pages/column/column?id=3', '[\"/pages/column/column?id=\",3]');
+INSERT INTO `banner_index` VALUES (6, 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576419168523_banner-5.webp', '/pages/column/column?id=4', '[\"/pages/column/column?id=\",4]');
 
 -- ----------------------------
 -- Table structure for cart
@@ -95,7 +105,16 @@ CREATE TABLE `classify_index`  (
   `image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `category_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of classify_index
+-- ----------------------------
+INSERT INTO `classify_index` VALUES (1, '乳品冷饮', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576468278597_classify-01.jpg', '4');
+INSERT INTO `classify_index` VALUES (2, '面点速食', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576468303744_classify-02.jpg', '9');
+INSERT INTO `classify_index` VALUES (4, '肉禽蛋品', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576482842570_classify-03.jpg', '6');
+INSERT INTO `classify_index` VALUES (5, '生鲜水果', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576483227852_classify-04.jpg', '1');
+INSERT INTO `classify_index` VALUES (6, '坚果蜜饯', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576483247551_classify-05.webp', '5');
 
 -- ----------------------------
 -- Table structure for column
@@ -106,7 +125,14 @@ CREATE TABLE `column`  (
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of column
+-- ----------------------------
+INSERT INTO `column` VALUES (2, '零食大放价', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576507564582_column-1.png');
+INSERT INTO `column` VALUES (3, '居家神器', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576507632284_column-2.png');
+INSERT INTO `column` VALUES (4, '补补身体', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576507731311_column-3.png');
 
 -- ----------------------------
 -- Table structure for column_goods
@@ -117,7 +143,26 @@ CREATE TABLE `column_goods`  (
   `column_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `goods_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of column_goods
+-- ----------------------------
+INSERT INTO `column_goods` VALUES (5, '2', '8');
+INSERT INTO `column_goods` VALUES (6, '2', '9');
+INSERT INTO `column_goods` VALUES (7, '2', '10');
+INSERT INTO `column_goods` VALUES (10, '3', '14');
+INSERT INTO `column_goods` VALUES (11, '3', '12');
+INSERT INTO `column_goods` VALUES (12, '3', '13');
+INSERT INTO `column_goods` VALUES (13, '3', '4');
+INSERT INTO `column_goods` VALUES (14, '3', '5');
+INSERT INTO `column_goods` VALUES (15, '2', '7');
+INSERT INTO `column_goods` VALUES (16, '2', '6');
+INSERT INTO `column_goods` VALUES (17, '4', '6');
+INSERT INTO `column_goods` VALUES (18, '4', '1');
+INSERT INTO `column_goods` VALUES (19, '4', '3');
+INSERT INTO `column_goods` VALUES (20, '4', '2');
+INSERT INTO `column_goods` VALUES (21, '4', '11');
 
 -- ----------------------------
 -- Table structure for goods
@@ -147,10 +192,10 @@ INSERT INTO `goods` VALUES (3, '静宁馆 红六福 特产水果 红富士苹果
 INSERT INTO `goods` VALUES (4, '曼德堡啤酒 小红罐 320ml*24听 整箱装', '性价之选,口感纯正,麦香清新', '3', 29.90, 35.90, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575946456971_beer.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575946460916_beer-banner-01.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575946464483_beer-banner-03.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575946328679_beer-editor-01.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575946332886_beer-editor-02.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575946261882_beer.jpg', '0');
 INSERT INTO `goods` VALUES (5, '百威（Budweiser）啤酒经典醇正500ml*18听整箱装啤酒国产啤酒', '百威（Budweiser）啤酒经典醇正500ml*18听整箱装啤酒国产啤酒', '3', 109.00, 128.00, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575947676794_beer.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575947846227_beer-banner-01.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575947849464_beer-banner-02.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575947852480_beer-banner-03.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575947652351_beer-editor-01.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575947655262_beer-editor-02.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575947659266_beer-editor-03.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575947664671_beer-editor-04.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575947668663_beer-editor-05.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575947626364_beer.jpg', '0');
 INSERT INTO `goods` VALUES (6, '蒙牛(MENGNIU)纯甄草莓果粒风', '精选优质草莓，进口丹麦菌种，纯正生牛乳，轻享慢发酵', '4', 53.90, NULL, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575948412273_milk-banner-01.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575948416756_milk-banner-02.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575948421266_milk-banner-03.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575948397775_milk-editor-01.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575948258546_milk.jpg', '0');
-INSERT INTO `goods` VALUES (7, '奥利奥(OREO) 夹心饼干 零食 原味696g(盒装)', '亿滋系列商品，玩转奥利奥，秀出新趣味，零食饼干', '5', 26.50, 28.50, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949746406_oreo-banner-01.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949751156_oreo-banner-02.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949754860_oreo-banner-03.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949759704_oreo-banner-04.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949728067_oreo-editor-01.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949730990_oreo-editor-02.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949734495_oreo-editor-03.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949672611_oreo.jpg', '1');
+INSERT INTO `goods` VALUES (7, '奥利奥(OREO) 夹心饼干 零食 原味696g(盒装)', '亿滋系列商品，玩转奥利奥，秀出新趣味，零食饼干', '5', 26.50, 28.50, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949746406_oreo-banner-01.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949751156_oreo-banner-02.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949754860_oreo-banner-03.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949759704_oreo-banner-04.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949728067_oreo-editor-01.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949730990_oreo-editor-02.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949734495_oreo-editor-03.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575949672611_oreo.jpg', '0');
 INSERT INTO `goods` VALUES (8, '乐事 香辣小龙虾味薯片 75克/袋', '真薯原切、够薄够脆、唇齿留香', '5', 10.50, 12.50, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959928080_lay\'s.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959935112_lay\'s-banner-1.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959940073_lay\'s-banner-02.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959944903_lay\'s-banner-03.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959724939_lay\'s-editor-01.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959730070_lay\'s-editor-02.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959736326_lay\'s-editor-03.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959884354_lay\'s-editor-05.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959892516_lay\'s-editor-04.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959897846_lay\'s-editor-06.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959903856_lay\'s-editor-07.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575959633154_lay\'s.jpg', '0');
 INSERT INTO `goods` VALUES (9, '乐事 蒲烧鳗鱼味薯片 75克/袋', '真薯原切、够薄够脆、唇齿留香', '5', 10.50, 11.50, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960329403_lay\'s-02.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960335209_lay\'s-2-banner-02.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960342652_lay\'s-2-banner-03.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960226131_lay\'s-2-editor-01.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960229418_lay\'s-2-editor-02.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960234366_lay\'s-2-editor-03.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960240443_lay\'s-2-editor-04.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960249563_lay\'s-2-editor-05.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960309851_lay\'s-2-editor-06.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960322397_lay\'s-2-editor-07.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960190012_lay\'s-02.jpg', '0');
-INSERT INTO `goods` VALUES (10, '乐事 金黄炒蟹味薯片 75克/袋', '酥脆鲜香 蟹味浓郁 休闲必备', '5', 10.50, 11.50, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960774785_lay\'s-03.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960778926_lay\'s-banner-1.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960790614_lay\'s-03-banner-01.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960797107_lay\'s-03-banner-02.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960702744_lay\'s-03-editor-01.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960709619_lay\'s-03-editor-02.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960715548_lay\'s-03-editor-03.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960721130_lay\'s-03-editor-04.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960726917_lay\'s-03-editor-05.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960732314_lay\'s-03-editor-06.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960751800_lay\'s-03-editor-07.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960668203_lay\'s-03.jpg', '0');
+INSERT INTO `goods` VALUES (10, '乐事 金黄炒蟹味薯片 75克/袋', '酥脆鲜香 蟹味浓郁 休闲必备', '5', 10.50, 11.50, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960774785_lay\'s-03.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960778926_lay\'s-banner-1.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960790614_lay\'s-03-banner-01.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960797107_lay\'s-03-banner-02.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960702744_lay\'s-03-editor-01.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960709619_lay\'s-03-editor-02.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960715548_lay\'s-03-editor-03.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960721130_lay\'s-03-editor-04.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960726917_lay\'s-03-editor-05.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960732314_lay\'s-03-editor-06.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960751800_lay\'s-03-editor-07.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575960668203_lay\'s-03.jpg', '1');
 INSERT INTO `goods` VALUES (11, '简单滋味 越南巴沙鱼柳500g（2片）海鲜', '无骨无刺，口感鲜美，爽滑细嫩', '6', 25.80, 28.80, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575961299101_fish.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575961303071_fish-banner01.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575961308030_fish-banner-02.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575961313439_fish-banner-03.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575961253794_fish-editor-01.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575961258528_fish-editor-02.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575961263849_fish-editor-03.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575961267276_fish-editor-04.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575961271222_fish-editor-05.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575961275061_fish-editor-06.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575961217753_fish.jpg', '0');
 INSERT INTO `goods` VALUES (12, '新鲜野生洋槐花1斤装 ', '现摘蔬菜深山野菜可蒸', '7', 16.60, NULL, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575962462034_flower.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575962462280_flower-banner-01.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575962462976_flower-banner-02.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575962472883_flower-banner-03.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575962447832_flower-editor-01.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575962450515_flower-editor-02.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575962388499_flower.jpg', '0');
 INSERT INTO `goods` VALUES (13, '金龙鱼#不油腻轻年#玉米油3.818L', '非转基因物理压榨植物油 充氮保鲜食用油', '10', 49.90, 55.90, '[{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575963681287_oil.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575963689987_oil-banner-01.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575963694795_oil-banner-02.jpg\"},{\"url\":\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575963698933_oil-banner-03.jpg\"}]', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575963650479_oil-editor-01.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575963654510_oil-editor-02.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575963657974_oil-editor-03.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575963661000_oil-editor-04.jpg\"><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575963664909_oil-editor-05.jpg\"></p>', '0', 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1575963607109_oil.jpg', '0');
@@ -167,12 +212,14 @@ CREATE TABLE `landing_page`  (
   `created_time` timestamp(0) NULL DEFAULT current_timestamp(0),
   `color` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of landing_page
 -- ----------------------------
-INSERT INTO `landing_page` VALUES (2, '火锅狂欢节', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576052987690_column-3.png\"></p>', '2019-12-11 16:30:04', 'rgba(113, 64, 64, 0.88)');
+INSERT INTO `landing_page` VALUES (2, '美素佳儿奶粉活动', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576418719401_landing-01.jpg\"></p>', '2019-12-11 16:30:04', 'rgba(44, 170, 232, 0.88)');
+INSERT INTO `landing_page` VALUES (3, '海鲜活动页', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576418932233_landing-02.jpg\"></p>', '2019-12-15 22:09:55', 'rgba(51, 200, 205, 0.8)');
+INSERT INTO `landing_page` VALUES (4, '零食活动页', '<p><img src=\"http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576419146222_landing-03.jpg\"></p>', '2019-12-15 22:12:40', 'rgba(239, 164, 23, 0.8)');
 
 -- ----------------------------
 -- Table structure for landing_page_recommend
@@ -183,14 +230,18 @@ CREATE TABLE `landing_page_recommend`  (
   `page_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `goods_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of landing_page_recommend
 -- ----------------------------
-INSERT INTO `landing_page_recommend` VALUES (4, '2', '8');
-INSERT INTO `landing_page_recommend` VALUES (5, '2', '9');
-INSERT INTO `landing_page_recommend` VALUES (6, '2', '10');
+INSERT INTO `landing_page_recommend` VALUES (7, '2', '6');
+INSERT INTO `landing_page_recommend` VALUES (8, '2', '7');
+INSERT INTO `landing_page_recommend` VALUES (9, '3', '11');
+INSERT INTO `landing_page_recommend` VALUES (10, '3', '12');
+INSERT INTO `landing_page_recommend` VALUES (11, '4', '8');
+INSERT INTO `landing_page_recommend` VALUES (12, '4', '9');
+INSERT INTO `landing_page_recommend` VALUES (13, '4', '10');
 
 -- ----------------------------
 -- Table structure for manager
@@ -246,8 +297,14 @@ CREATE TABLE `poster_index`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `page_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `options` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of poster_index
+-- ----------------------------
+INSERT INTO `poster_index` VALUES (1, 'http://q1d0cb6r5.bkt.clouddn.com/candyHouse/1576463455761_poster.webp', '/pages/column/column?id=4', '[\"/pages/column/column?id=\",4]');
 
 -- ----------------------------
 -- Table structure for recommend

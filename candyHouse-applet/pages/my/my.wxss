@@ -19,13 +19,13 @@
 }
 .avatar{
   width: 150rpx;
-  margin: 0 50rpx;
+  margin: 0 30rpx 0 60rpx;
 }
 .banner-content{
-  font-size: 30rpx;
+  font-size: 28rpx;
 }
 .nickName{
-  font-size: 38rpx;
+  font-size: 36rpx;
   font-weight: 600;
 }
 .welcomes{
@@ -46,9 +46,12 @@
   align-items: center;
   padding: 0 20rpx;
   box-sizing: border-box;
-  background-image: linear-gradient(150deg, #7E7A7A,#241D1D);
+  background-image: url(https://img11.360buyimg.com/jdphoto/s710x134_jfs/t1/43463/14/4447/108469/5cd2c002Ee4dcb4c9/445d4efb8eee08e9.png);
+  background-size: cover;
   border-top-left-radius: 20rpx;
   border-top-right-radius: 20rpx;
+  border-bottom-left-radius: 12rpx;
+  border-bottom-right-radius: 12rpx;
   color: #fff;
 }
 .lable-item{

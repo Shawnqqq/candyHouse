@@ -13,10 +13,22 @@ const LandingCreate = () =>
 const LandingSingle = () =>
   import(/* webpackChunkName: "Index" */ "@/views/LandingSingle");
 const Banner = () => import(/* webpackChunkName: "Index" */ "@/views/Banner");
+const BannerCreate = () =>
+  import(/* webpackChunkName: "Index" */ "@/views/BannerCreate");
 const Poster = () => import(/* webpackChunkName: "Index" */ "@/views/Poster");
+const PosterCreate = () =>
+  import(/* webpackChunkName: "Index" */ "@/views/PosterCreate");
 const Classify = () =>
   import(/* webpackChunkName: "Index" */ "@/views/Classify");
+const ClassifyCreate = () =>
+  import(/* webpackChunkName: "Index" */ "@/views/ClassifyCreate");
+const ClassifyEdit = () =>
+  import(/* webpackChunkName: "Index" */ "@/views/ClassifyEdit");
 const Column = () => import(/* webpackChunkName: "Index" */ "@/views/Column");
+const ColumnCreate = () =>
+  import(/* webpackChunkName: "Index" */ "@/views/ColumnCreate");
+const ColumnSingle = () =>
+  import(/* webpackChunkName: "Index" */ "@/views/ColumnSingle");
 const Goods = () => import(/* webpackChunkName: "Goods" */ "@/views/Goods"); //商品管理
 const Category = () =>
   import(/* webpackChunkName: "Goods" */ "@/views/Category");
@@ -121,7 +133,7 @@ export default [
           {
             path: "/admin/banner",
             name: "banner",
-            component: Banner,
+            component: { render: h => h("router-view") },
             meta: {
               nav: {
                 icon: "el-icon-c-scale-to-original",
@@ -130,12 +142,29 @@ export default [
               breadcrumb: {
                 title: "轮播图管理"
               }
-            }
+            },
+            children: [
+              {
+                path: "/admin/banner",
+                name: "banner",
+                component: Banner
+              },
+              {
+                path: "/admin/bannerCreate",
+                name: "bannerCreate",
+                component: BannerCreate,
+                meta: {
+                  breadcrumb: {
+                    title: "轮播图添加"
+                  }
+                }
+              }
+            ]
           },
           {
             path: "/admin/poster",
             name: "poster",
-            component: Poster,
+            component: { render: h => h("router-view") },
             meta: {
               nav: {
                 icon: "el-icon-picture-outline",
@@ -144,12 +173,29 @@ export default [
               breadcrumb: {
                 title: "海报页管理"
               }
-            }
+            },
+            children: [
+              {
+                path: "/admin/poster",
+                name: "poster",
+                component: Poster
+              },
+              {
+                path: "/admin/posterCreate",
+                name: "posterCreate",
+                component: PosterCreate,
+                meta: {
+                  breadcrumb: {
+                    title: "海报页添加"
+                  }
+                }
+              }
+            ]
           },
           {
             path: "/admin/classify",
             name: "classify",
-            component: Classify,
+            component: { render: h => h("router-view") },
             meta: {
               nav: {
                 icon: "el-icon-menu",
@@ -158,12 +204,39 @@ export default [
               breadcrumb: {
                 title: "分类推荐管理"
               }
-            }
+            },
+            children: [
+              {
+                path: "/admin/classify",
+                name: "classify",
+                component: Classify
+              },
+              {
+                path: "/admin/classifyCreate",
+                name: "classifyCreate",
+                component: ClassifyCreate,
+                meta: {
+                  breadcrumb: {
+                    title: "分类推荐添加"
+                  }
+                }
+              },
+              {
+                path: "/admin/classifyEdit",
+                name: "classifyEdit",
+                component: ClassifyEdit,
+                meta: {
+                  breadcrumb: {
+                    title: "分类推荐修改"
+                  }
+                }
+              }
+            ]
           },
           {
             path: "/admin/column",
             name: "column",
-            component: Column,
+            component: { render: h => h("router-view") },
             meta: {
               nav: {
                 icon: "el-icon-files",
@@ -172,7 +245,34 @@ export default [
               breadcrumb: {
                 title: "合辑推荐管理"
               }
-            }
+            },
+            children: [
+              {
+                path: "/admin/column",
+                name: "column",
+                component: Column
+              },
+              {
+                path: "/admin/columnCreate",
+                name: "columnCreate",
+                component: ColumnCreate,
+                meta: {
+                  breadcrumb: {
+                    title: "合辑推荐添加"
+                  }
+                }
+              },
+              {
+                path: "/admin/columnSingle",
+                name: "columnSingle",
+                component: ColumnSingle,
+                meta: {
+                  breadcrumb: {
+                    title: "合辑推荐修改"
+                  }
+                }
+              }
+            ]
           }
         ]
       },

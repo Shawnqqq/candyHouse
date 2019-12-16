@@ -15,7 +15,17 @@ const API = {
   recommend: `${PREFIX}/recommend`,
   landing: `${PREFIX}/landing`,
   landingItem: id => `${PREFIX}/landing/${id}`,
-  landingGoods: id => `${PREFIX}/landingGoods/${id}`
+  landingGoods: id => `${PREFIX}/landingGoods/${id}`,
+  pathOptions: `${PREFIX}/pathOptions`,
+  banner: `${PREFIX}/banner`,
+  bannerItem: id => `${PREFIX}/banner/${id}`,
+  poster: `${PREFIX}/poster`,
+  posterItem: id => `${PREFIX}/poster/${id}`,
+  classify: `${PREFIX}/classify`,
+  classifyItem: id => `${PREFIX}/classify/${id}`,
+  column: `${PREFIX}/column`,
+  columnItem: id => `${PREFIX}/column/${id}`,
+  columnGoods: id => `${PREFIX}/columnGoods/${id}`
 };
 
 export default API;

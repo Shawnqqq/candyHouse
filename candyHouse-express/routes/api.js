@@ -9,6 +9,11 @@ const categoryController = require('../controllers/category')
 const goodsController = require('../controllers/goods')
 const recommendController = require('../controllers/recommend')
 const landing_pageController = require('../controllers/landing')
+const pathOptionsController = require('../controllers/pathOptions')
+const bannerController = require('../controllers/banner')
+const posterController = require('../controllers/poster')
+const classifyController = require('../controllers/classify')
+const columnController = require('../controllers/column')
 
 // 登录
 router.post('/authLogin',authController.login)
@@ -47,5 +52,30 @@ router.get('/landing/:id',middleAuth,landing_pageController.single)
 router.post('/landingGoods/:id',middleAuth,landing_pageController.recommend)
 router.put('/landingGoods/:id',middleAuth,landing_pageController.unRecommend)
 router.delete('/landing/:id',middleAuth,landing_pageController.deleted)
+// 路径选项
+router.get('/pathOptions',middleAuth,pathOptionsController.all)
+// 轮播图
+router.post('/banner',middleAuth,bannerController.insert)
+router.get('/banner',middleAuth,bannerController.all)
+router.delete('/banner/:id',middleAuth,bannerController.delete)
+// 海报页
+router.post('/poster',middleAuth,posterController.insert)
+router.get('/poster',middleAuth,posterController.all)
+router.delete('/poster/:id',middleAuth,posterController.delete)
+// 推荐分类
+router.post('/classify',middleAuth,classifyController.insert)
+router.get('/classify',middleAuth,classifyController.all)
+router.delete('/classify/:id',middleAuth,classifyController.delete)
+router.get('/classify/:id',middleAuth,classifyController.single)
+router.put('/classify/:id',middleAuth,classifyController.update)
+// 合辑管理
+router.post('/column',middleAuth,columnController.insert)
+router.get('/column',middleAuth,columnController.all)
+router.delete('/column/:id',middleAuth,columnController.delete)
+router.get('/column/:id',middleAuth,columnController.single)
+router.put('/column/:id',middleAuth,columnController.update)
+router.post('/columnGoods/:id',middleAuth,columnController.recommend)
+router.put('/columnGoods/:id',middleAuth,columnController.unRecommend)
+
 
 module.exports = router;
