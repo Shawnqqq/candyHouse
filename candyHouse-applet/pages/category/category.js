@@ -1,15 +1,82 @@
+import API from '../../global/request/api.js'
+
 Page({
   data: {
-    categoryIndex:0,
-    catagory: ["推荐", "限量低价", "水果", "酒饮", "乳品", "零食", "肉蛋", "蔬菜", "熟食", "水产", "粮油", "清洁", "美妆", "家居","数码"]
+    categoryId:0,
+    category: [],
+    loading:true,
+    goodsData:[]
   },
   onLoad: function (options) {
-
+    if(options.id){
+      this.setData({
+        categoryId:Number(options.id)
+      })
+    }
   },
-  getData(e){
-    let index = e.currentTarget.dataset.index
-    this.setData({
-      categoryIndex:index
+  onShow(){
+    wx.request({
+      url: API.wxCategory,
+      success:res=>{
+        res.data.data.unshift({id:0,name:"推荐"})
+        this.setData({
+          category:res.data.data
+        })
+      },
+      fail:err=>{
+        console.log(err)
+      }
     })
+    this.getData()
+  },
+  changeCategory(e){
+    let id = e.currentTarget.dataset.id
+    this.setData({
+      categoryId:id,
+      loading:true
+    })
+    this.getData()
+  },
+  getData(){
+    let id = this.data.categoryId
+    if(id===0){
+      wx.request({
+        url:API.wxRecommend,
+        success:res=>{
+          this.setData({
+            goodsData:res.data.data
+          })
+        },
+        fail:err=>{
+          console.log(err)
+        },
+        complete:res=>{
+          if(res.statusCode===200){
+            this.setData({
+              loading:false
+            })
+          }
+        }
+      })
+    }else{
+      wx.request({
+        url:API.wxCategory+"/"+id,
+        success:res=>{
+          this.setData({
+            goodsData:res.data.data
+          })
+        },
+        fail:err=>{
+          console.log(err)
+        },
+        complete:res=>{
+          if(res.statusCode===200){
+            this.setData({
+              loading:false
+            })
+          }
+        }
+      })
+    }
   }
 })

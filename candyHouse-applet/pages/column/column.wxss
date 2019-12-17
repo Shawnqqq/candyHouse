@@ -1,3 +1,6 @@
+.column-section{
+  min-height:100vh;
+}
 .column-content{
   display: flex;
   flex-wrap: wrap;

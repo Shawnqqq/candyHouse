@@ -14,6 +14,9 @@ const bannerController = require('../controllers/banner')
 const posterController = require('../controllers/poster')
 const classifyController = require('../controllers/classify')
 const columnController = require('../controllers/column')
+const wxIndexController = require('../controllers/wxIndex')
+const wxCategoryController = require('../controllers/wxCategory')
+const wxLandingController = require('../controllers/wxLanding')
 
 // 登录
 router.post('/authLogin',authController.login)
@@ -76,6 +79,19 @@ router.get('/column/:id',middleAuth,columnController.single)
 router.put('/column/:id',middleAuth,columnController.update)
 router.post('/columnGoods/:id',middleAuth,columnController.recommend)
 router.put('/columnGoods/:id',middleAuth,columnController.unRecommend)
+
+// 小程序接口
+// 首页数据
+router.get('/wxBanner',wxIndexController.bannerAll)
+router.get('/wxClassify',wxIndexController.classifyAll)
+router.get('/wxPoster',wxIndexController.posterAll)
+router.get('/wxColumn',wxIndexController.columnAll)
+// 分类数据
+router.get('/wxCategory',wxCategoryController.category)
+router.get('/wxRecommend',wxCategoryController.recommend)
+router.get('/wxCategory/:id',wxCategoryController.single)
+// 活动页
+router.get('/wxLanding/:id',wxLandingController.landing)
 
 
 module.exports = router;

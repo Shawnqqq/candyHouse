@@ -1,7 +1,59 @@
-const app = getApp()
+import API from '../../global/request/api.js'
 
 Page({
   data: {
-    
+    swiperData:[],
+    classifyData:[],
+    posterData:[],
+    columnData:[]
   },
+  onLoad(){
+    this.getData()
+  },
+  getData(){
+    wx.request({
+      url:API.banner,
+      success:res=>{
+        this.setData({
+          swiperData:res.data.data
+        })
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+    wx.request({
+      url:API.wxClassify,
+      success:res=>{
+        this.setData({
+          classifyData:res.data.data
+        })
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+    wx.request({
+      url:API.wxPoster,
+      success:res=>{
+        this.setData({
+          posterData:res.data.data
+        })
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+    wx.request({
+      url:API.wxColumn,
+      success:res=>{
+        this.setData({
+          columnData:res.data.data
+        })
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  }
 })

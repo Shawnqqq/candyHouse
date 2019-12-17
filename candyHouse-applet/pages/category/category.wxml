@@ -1,94 +1,47 @@
 <view class="container">
   <view class="search">
     <van-icon name="search" size="36rpx" custom-style="margin:10rpx 20rpx 0 30rpx ;" />
-    椰青9颗68.9
+    乐事新品10.5
   </view>
   <view class="body">
-    <scroll-view 
+    <scroll-view
       class="category"
       scroll-y
       scroll-with-animation="true"
-      scroll-into-view="category-item-{{categoryIndex}}">
-      <view class="category-item {{index===categoryIndex? 'active' : ''}}" 
-        wx:for="{{catagory}}"
+      scroll-into-view="category-item-{{categoryId}}">
+      <view class="category-item {{item.id===categoryId? 'active' : ''}}" 
+        wx:for="{{category}}"
         wx:key="index"
-        data-index="{{index}}"
-        bindtap="getData"
-        id="category-item-{{index}}"
-      >{{item}}</view>
+        data-id="{{item.id}}"
+        bindtap="changeCategory"
+        id="category-item-{{item.id}}"
+      >{{item.name}}</view>
     </scroll-view>
     <scroll-view 
       class="product"
       scroll-y
       scroll-with-animation="true">
-      <view class="product-item">
+      <navigator class="product-item"
+        wx:if="{{!loading}}"
+        wx:for="{{goodsData}}"
+        wx:key="index"
+        url="/pages/product/product?id={{item.id}}"
+        >
         <image class="product-image"
           mode="widthFix"
-          src="https://m.360buyimg.com/n1/s333x333_jfs/t5002/7/1165101964/248511/9bb3c611/58ed8e71N1b0bf7e8.jpg!q70.webp"></image>
+          src="{{item.image_url}}"></image>
         <view class="product-content">
-          <view class="product-name">百瑞源 宁夏中宁枸杞子甲级500g/袋</view>
-          <view class="product-desc">配料只有黑芝麻蜂蜜纯天然老少皆宜</view>
+          <view class="product-name">{{item.name}}</view>
+          <view class="product-desc">{{item.description}}</view>
           <view class="product-price">
-            ¥<text class="price">52.9</text>
-            <text class="price-origin">¥ 368</text>
+            ¥<text class="price">{{item.price}}</text>
+            <text class="price-origin" wx:if="{{item.price_origin}}">¥ {{item.price_origin}}</text>
           </view>
           <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
         </view>
-      </view>
-      <!-- <view class="product-item">
-        <image class="product-image"
-          mode="widthFix"
-          src="https://m.360buyimg.com/n1/s333x333_jfs/t1/28002/9/14924/312465/5cab1248E9a87f97f/c97db8b6ca688f10.jpg!q70.webp"></image>
-        <view class="product-content">
-          <view class="product-name">渴望(Orijen) 鸡肉味 5.4kg 猫粮</view>
-          <view class="product-desc">配料只有黑芝麻蜂蜜纯天然老少皆宜</view>
-          <view class="product-price">
-            ¥<text class="price">649</text>
-          </view>
-          <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-        </view>
-      </view>
-      <view class="product-item">
-        <image class="product-image"
-          mode="widthFix"
-          src="https://m.360buyimg.com/n1/s333x333_jfs/t1/67066/14/3542/248127/5d1b06d5Ee06a87cd/94cb375d5a7f4946.jpg!q70.webp"></image>
-        <view class="product-content">
-          <view class="product-name">茅台 飞天 2017年出厂 酱香型白酒 53度 500ml*6瓶装（新老包装随机发货）</view>
-          <view class="product-price">
-            ¥<text class="price">15555</text>
-          </view>
-          <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-        </view>
-      </view>
-      <view class="product-item">
-        <image class="product-image"
-          mode="widthFix"
-          src="https://m.360buyimg.com/n1/s333x333_jfs/t1/36557/6/12871/381145/5d0c963eEb96b5b98/5314fab5b9236337.jpg!q70.webp"></image>
-        <view class="product-content">
-          <view class="product-name">【活鲜】味库 鲜活加拿大进口波士顿龙虾 450-550g 1只 盒装 海鲜水产</view>
-          <view class="product-desc">清甜多汁，舌尖上的美味</view>
-          <text class="product-lable">满99-20</text>
-          <view class="product-price">
-            ¥<text class="price">29.9</text>
-          </view>
-          <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-        </view>
-      </view>
-      <view class="product-item">
-        <image class="product-image"
-          mode="widthFix"
-          src="https://m.360buyimg.com/n1/s333x333_jfs/t1/101014/27/1686/415573/5dc29bb3Ec90ab7ea/50d6afddae8a6b55.jpg!q70.webp"></image>
-        <view class="product-content">
-          <view class="product-name">新奇士Sunkist澳洲一级鲜橙 12粒澳橙 单果约140-190g 生鲜进口水果橙子</view>
-          <view class="product-desc">可以手动榨汁的果冻橙</view>
-          <text class="product-lable">满99-20</text>
-          <view class="product-price">
-            ¥<text class="price">58.8</text>
-          </view>
-          <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-        </view>
-      </view> -->
+      </navigator>
       <van-skeleton
+        wx:if="{{loading}}"
         wx:for="{{4}}"
         wx:key="index"
         class="product-item" 

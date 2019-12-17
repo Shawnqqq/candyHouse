@@ -14,30 +14,14 @@
       circular
       duration="1000"
       >
-      <swiper-item>
-        <view class="swiper-item">
-          <image class="swiper-image" mode="aspectFill"  src="https://img12.360buyimg.com//babel/jfs/t1/75977/6/15673/102003/5dd25f8eE90e0445a/5a592022ece4124e.jpg!q80.webp"></image>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="swiper-item">
-          <image class="swiper-image" mode="aspectFill"  src="https://img10.360buyimg.com//babel/jfs/t1/86217/25/2560/38131/5dd25346Ecf5db0ee/025474bf3b8cc2de.jpg!q80.webp"></image>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="swiper-item">
-          <image class="swiper-image" mode="aspectFill"  src="https://img10.360buyimg.com//babel/jfs/t1/54202/18/16212/48543/5dd4a5bfE9c5a5090/02dab23f0c3a0327.jpg!q80.webp"></image>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="swiper-item">
-          <image class="swiper-image" mode="aspectFill"  src="https://img14.360buyimg.com//babel/jfs/t1/70561/17/15878/120353/5dd34cecE21d0c144/0c8e8f5de5860950.jpg!q80.webp"></image>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="swiper-item">
-          <image class="swiper-image" mode="aspectFill"  src="https://img13.360buyimg.com//babel/jfs/t1/50887/17/16076/165541/5dd1f073E7f47ad46/f2dfe64918b4a0ec.jpg!q80.webp"></image>
-        </view>
+      <swiper-item 
+        wx:for="{{swiperData}}"
+        wx:key="index">
+        <navigator 
+          class="swiper-item" 
+          url="{{item.page_path}}">
+          <image class="swiper-image" mode="aspectFill"  src="{{item.image_url}}"></image>
+        </navigator>
       </swiper-item>
     </swiper>
     <view class="lable">
@@ -55,214 +39,49 @@
       </view>
     </view>
     <view class="category">
-      <view class="category-item">
-        <image class="category-image" mode="aspectFill" src="https://m.360buyimg.com/babel/s133x133_jfs/t1/64254/35/1600/5474/5cfe311bE6b658420/c376ef47a5c89d23.jpg!q70.dpg"></image>
-        <text class="category-text">乳品冷饮</text>
-      </view>
-      <view class="category-item">
-        <image class="category-image" mode="aspectFill" src="https://m.360buyimg.com/babel/s133x133_jfs/t1/48937/35/2912/7045/5d0b6e2aE0e804104/9bc8a882b83c2108.jpg!q70.dpg"></image>
-        <text class="category-text">面点速食</text>
-      </view>
-      <view class="category-item">
-        <image class="category-image" mode="aspectFill" src="https://m.360buyimg.com/babel/s133x133_jfs/t1/55710/36/5173/8351/5d2da86bE2ac4dee5/10957ef8d1ceec5f.jpg!q70.dpg"></image>
-        <text class="category-text">肉禽蛋品</text>
-      </view>
-      <view class="category-item">
-        <image class="category-image" mode="aspectFill" src="https://m.360buyimg.com/babel/s133x133_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg"></image>
-        <text class="category-text">生鲜水果</text>
-      </view>
-      <view class="category-item">
-        <image class="category-image" mode="aspectFill" src="https://m.360buyimg.com/babel/jfs/t1/30772/34/15471/11597/5cc15bf7Eef0d8313/6af74e699fec52e9.png!q70.webp"></image>
-        <text class="category-text">坚果蜜饯</text>
-      </view>
+      <navigator class="category-item"
+        url="/pages/category/category?id={{item.category_id}}"
+        open-type="reLaunch"
+        wx:for="{{classifyData}}"
+        wx:key="index">
+        <image class="category-image" mode="aspectFill" src="{{item.image_url}}"></image>
+        <text class="category-text">{{item.title}}</text>
+      </navigator>
     </view>
     <view class="poster">
-      <image class="poster-image" mode="widthFix" src="https://m.360buyimg.com/babel/jfs/t1/90531/18/2341/174431/5dceaf4bE253b5a5a/389b012aee15e24d.gif!q70.webp"></image>
+      <navigator
+        wx:for="{{posterData}}"
+        wx:key="index"
+        url="{{item.page_path}}">
+        <image class="poster-image" mode="widthFix" src="{{item.image_url}}"></image>
+      </navigator>
     </view>
     <view class="column">
-      <view class="column-item">
+      <view class="column-item"
+        wx:for="{{columnData}}"
+        wx:key="index">
         <view class="column-item-banner">
-          <image class="banner-image" mode="widthFix" src="http://q1d0cb6r5.bkt.clouddn.com/column-1.png"></image>
+          <image class="banner-image" mode="widthFix" src="{{item.data.image_url}}"></image>
         </view>
         <scroll-view class="column-item-content" enable-flex="true" scroll-x="true">
-          <view class="product-item">
+          <navigator class="product-item"
+            url="/pages/product/product?id={{item.data.id}}"
+            wx:for="{{item.data.goods}}"
+            wx:for-index="idx"
+            wx:key="idx"
+            wx:for-item="goods">
             <image class="product-image" 
               mode="widthFix"
-              src="https://m.360buyimg.com/mobilecms/s1215x1215_jfs/t1/10502/6/12920/109545/5c7e4e17Eb146970b/5ca65a38d2b0ee80.jpg!q70.dpg.webp"></image> 
-            <view class="product-name">澳优 Ausnutria 金装优选爱优 3段 1-3岁 婴幼儿配方奶粉800g/罐</view>
-            <view class="product-price">
-              ¥<text class="price">328</text>
+              src="{{goods.image_url}}"></image> 
+            <view class="product-name">{{goods.name}}</view>
+            <view class="product-price origin-price" wx:if="{{goods.price_origin}}">
+              ¥<text class="price-line">{{goods.price_origin}}</text>
             </view>
-            <view class="price-origin">¥ 368</view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://img.alicdn.com/imgextra/i2/6000000002361/TB2RqCkylyWBuNkSmFPXXXguVXa_!!6000000002361-0-at.jpg_300x1000Q50s50.jpg_.webp"></image> 
-            <view class="product-name">美素佳儿3段奶粉900g</view>
             <view class="product-price">
-              ¥<text class="price">188</text>
-            </view>
-            <view class="price-origin">¥ 368</view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://img.alicdn.com/imgextra/i3/725677994/TB2eM8Cd1uSBuNjSsplXXbe8pXa_!!725677994.jpg_300x1000Q50s50.jpg_.webp"></image> 
-            <view class="product-name">飞鹤特惠四联包</view>
-            <view class="product-price">
-              ¥<text class="price">153</text>
-            </view>
-            <view class="price-origin">¥ 368</view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://img.alicdn.com/imgextra/i1/6000000007648/TB2wkpemwZC2uNjSZFnXXaxZpXa_!!6000000007648-0-at.jpg_300x1000Q50s50.jpg_.webp"></image> 
-            <view class="product-name">美赞臣奶粉3段1200g</view>
-            <text class="product-lable">满199减50</text>
-            <view class="product-price">
-              ¥<text class="price">158</text>
+              ¥<text class="price">{{goods.price}}</text>
             </view>
             <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://img.alicdn.com/imgextra/i3/6000000008130/TB2czjwodcnBKNjSZR0XXcFqFXa_!!6000000008130-0-at.jpg_300x1000Q50s50.jpg_.webp"></image> 
-            <view class="product-name">白金爱他美奶粉</view>
-            <text class="product-lable">满199减50</text>
-            <view class="product-price">
-              ¥<text class="price">325</text>
-            </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-        </scroll-view>
-      </view>
-      <view class="column-item">
-        <view class="column-item-banner">
-          <image class="banner-image" mode="widthFix" src="http://q1d0cb6r5.bkt.clouddn.com/column-2.png"></image>
-        </view>
-        <scroll-view class="column-item-content" enable-flex="true" scroll-x="true">
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://m.360buyimg.com/n1/s333x333_jfs/t19876/35/762728546/192100/8707ca67/5b0a4fafN78065788.jpg!q70.webp"></image> 
-            <view class="product-name">北美电器（ACA）家用手持电动打蛋器  双搅拌棒 AHM-P120A</view>
-            <view class="product-price">
-              ¥<text class="price">69</text>
-            </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://m.360buyimg.com/n1/s333x333_jfs/t514/351/768986393/85904/ea86dd1/54881eaaNa673792a.jpg!q70.webp"></image> 
-            <view class="product-name">苏泊尔易存储304不锈钢双层复底蒸锅两层SZ28B2</view>
-            <text class="product-lable">满99减20</text>
-            <view class="product-price">
-              ¥<text class="price">219</text>
-            </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://m.360buyimg.com/n1/s333x333_jfs/t7840/219/1453631985/142492/1066a123/599d413eNd4e5621e.jpg!q70.webp"></image> 
-            <view class="product-name">BroadLink SP mini3-JD WiFi定时器遥控开关微联智能插座 远程控制 智能家居 小京鱼APP控制</view>
-            <text class="product-lable">满99减20</text>
-            <view class="product-price">
-              ¥<text class="price">39</text>
-            </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://m.360buyimg.com/n1/s333x333_jfs/t1/4172/7/5429/133684/5b9f9f22E2de4c7cb/cea52ee65e0c5e61.jpg!q70.webp"></image> 
-            <view class="product-name">德龙（Delonghi）咖啡机 家用意式全自动 欧洲进口 手动卡布基诺奶泡系统 自动清洁 ECAM23.420.SW</view>
-            <text class="product-lable">满99减20</text>
-            <view class="product-price">
-              ¥<text class="price">4990</text>
-            </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://m.360buyimg.com/n1/s333x333_jfs/t8488/354/485935381/213763/3f2f184/59a8f5c0N4c03164d.jpg!q70.webp"></image> 
-            <view class="product-name">御妃颜 阿胶水晶枣100g</view>
-            <text class="product-lable">满99减20</text>
-            <view class="product-price">
-              ¥<text class="price">8.8</text>
-            </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-        </scroll-view>
-      </view>
-      <view class="column-item">
-        <view class="column-item-banner">
-          <image class="banner-image" mode="widthFix" src="http://q1d0cb6r5.bkt.clouddn.com/column-3.png"></image>
-        </view>
-        <scroll-view class="column-item-content" enable-flex="true" scroll-x="true">
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://m.360buyimg.com/n1/s333x333_jfs/t5002/7/1165101964/248511/9bb3c611/58ed8e71N1b0bf7e8.jpg!q70.webp"></image> 
-            <view class="product-name">百瑞源 宁夏中宁枸杞子甲级500g/袋</view>
-            <text class="product-lable">满99减20</text>
-            <view class="product-price">
-              ¥<text class="price">39</text>
-            </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://m.360buyimg.com/n1/s333x333_jfs/t1/56155/12/7675/261392/5d53e954E7df43547/40eb43b284511d2f.jpg!q70.webp"></image> 
-            <view class="product-name">同仁堂 总统牌 铁皮石斛 二级/100g礼盒装 乐清石斛 胶质饱满 铁皮石斛礼盒</view>
-            <text class="product-lable">满99减20</text>
-            <view class="product-price">
-              ¥<text class="price">1200</text>
-            </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://m.360buyimg.com/n1/s333x333_jfs/t1/47233/5/7680/191666/5d53e7eaE43de9942/b4417f9fe9315381.jpg!q70.webp"></image> 
-            <view class="product-name">北京同仁堂 总统牌 美国西洋参片切片80g</view>
-            <text class="product-lable">满99减20</text>
-            <view class="product-price">
-              ¥<text class="price">288</text>
-            </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://m.360buyimg.com/n1/s333x333_jfs/t1/66593/40/15134/517210/5dc56117Ec193f338/5cafa6173d875680.jpg!q70.webp"></image> 
-            <view class="product-name">庄民 燕窝 干大燕盏燕窝角 正规马来西亚进口原料溯源 正品女人孕妇滋补品20g</view>
-            <text class="product-lable">满99减20</text>
-            <view class="product-price">
-              ¥<text class="price">368</text>
-            </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
-          <view class="product-item">
-            <image class="product-image" 
-              mode="widthFix"
-              src="https://m.360buyimg.com/n1/s333x333_jfs/t1975/294/1650413461/62404/eff6bec5/56692ac8Nbe8ba82a.jpg!q70.webp"></image> 
-            <view class="product-name">康维他(COMVITA)蜂胶牙膏 100g（新西兰原装进口）</view>
-            <text class="product-lable">满99减20</text>
-            <view class="product-price">
-              ¥<text class="price">39</text>
-            </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
-          </view>
+          </navigator>
         </scroll-view>
       </view>
     </view>

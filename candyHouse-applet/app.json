@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/my/my",
     "pages/index/index",
+    "pages/category/category",
+    "pages/my/my",
     "pages/column/column",
     "pages/product/product",
     "pages/order/order",
     "pages/cart/cart",
     "pages/createAddress/createAddress",
-    "pages/category/category",
     "pages/address/address"
   ],
   "window": {

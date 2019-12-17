@@ -1,17 +1,42 @@
+import API from '../../global/request/api.js'
+
 Page({
   data: {
-    banner: "<p><img src='https://m.360buyimg.com/babel/s1242x1644_jfs/t1/71214/30/15912/435909/5dd672c8Ee1b9e51d/b5273096272381f4.jpg!q70.dpg'></p>",
-    backColor:"#ffc056",
-    loading:false
+    landingData:{},
+    loading:true,
+    landingId:""
   },
   onLoad: function (options) {
-
+    this.setData({
+      landingId:options.id
+    })
+  },
+  onShow(){
+    let id = this.data.landingId
+    wx.request({
+      url:API.wxLanding+"/"+id,
+      success:res=>{
+        this.setData({
+          landingData:res.data.data
+        })
+      },
+      fail:err=>{
+        console.log(err)
+      },
+      complete:res=>{
+        if(res.statusCode===200){
+          this.setData({
+            loading:false
+          })
+        }
+      }
+    })
   },
   onEditorReady() {
     wx.createSelectorQuery().select('#column-editor').context(res => {
       res.context.setContents({
-        html: this.data.banner
+        html: this.data.landingData.content
       })
     }).exec()
-  },
+  }
 })
