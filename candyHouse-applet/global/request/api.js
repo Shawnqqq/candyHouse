@@ -17,5 +17,10 @@ export default {
   wxColumn: `${PREFIX}/wxColumn`,
   wxCategory: `${PREFIX}/wxCategory`,
   wxRecommend: `${PREFIX}/wxRecommend`,
-  wxLanding: `${PREFIX}/wxLanding`
+  wxLanding: `${PREFIX}/wxLanding`,
+  wxgoods: `${PREFIX}/wxgoods`,
+  wxCart: `${PREFIX}/wxCart`,
+  wxCartReduce:`${PREFIX}/wxCartReduce`,
+  wxCartAdd: `${PREFIX}/wxCartAdd`,
+  wxCartDel: `${PREFIX}/wxCartDel`
 }

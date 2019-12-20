@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/category/category",
-    "pages/my/my",
-    "pages/column/column",
-    "pages/product/product",
-    "pages/order/order",
     "pages/cart/cart",
+    "pages/my/my",
+    "pages/product/product",
+    "pages/category/category",
+    "pages/column/column",
+    "pages/order/order",
     "pages/createAddress/createAddress",
     "pages/address/address"
   ],

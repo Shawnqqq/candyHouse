@@ -17,9 +17,22 @@
   border-radius: 0 0 50% 50%;
   background-image: linear-gradient(160deg, rgb(250, 94, 172),rgb(247, 217, 232));
 }
+.avatar-container{
+  width: 150rpx;
+  margin: 0 30rpx 0 60rpx;
+  box-sizing: border-box;
+  padding: 6rpx;
+  border-radius: 50%;
+  background-color: #DCDCDC;
+}
 .avatar{
   width: 150rpx;
   margin: 0 30rpx 0 60rpx;
+}
+.avatar-image{
+  display: block;
+  width: 100%;
+  border-radius: 50%;
 }
 .banner-content{
   font-size: 28rpx;
@@ -33,7 +46,12 @@
   margin: 10rpx 0;
 }
 .login{
-  font-size: 36rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  background-color: transparent;
+}
+button::after{
+  border: none
 }
 .banner-footer{
   position: absolute;

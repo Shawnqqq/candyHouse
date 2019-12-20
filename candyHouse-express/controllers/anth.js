@@ -1,5 +1,8 @@
-const managerModels = require('../models/manager')
-const authcode = require('../utils/authcode')
+const managerModels = require('../models/manager');
+const userModels = require('../models/user');
+const authcode = require('../utils/authcode');
+const config = require('../config');
+const axios = require('axios');
 
 const authController = {
   login: async function(req,res,next){
@@ -30,6 +33,43 @@ const authController = {
           status:manager[0].status,
           token,
         }
+      })
+    }catch(err){
+      console.log(err)
+      res.json({
+        code:0,
+        message:'服务器错误'
+      })
+    }
+  },
+  wxLogin: async function(req,res,next){
+    let appid = config.wechat.appid;
+    let secret = config.wechat.secret;
+    let js_code = req.body.code;
+    let userInfo = req.body.userInfo;
+    try{
+      let data = await axios.get(`https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=${secret}&js_code=${js_code}&grant_type=authorization_code`);
+      let openid = data.data.openid;
+      if(!openid || openid.length !== 28){
+        res.json({
+          code:0,
+          message:'服务器错误'
+        })
+        return
+      }
+      let user = await userModels.where({openid})
+      let id
+      if(user[0]){
+        id = user[0].id
+      }else{
+      // 储存数据库
+        let array = await userModels
+        .return({nickname:userInfo.nickName,openid,avatar:userInfo.avatarUrl})
+        id = array[0]
+      }
+      res.json({
+        code:200,
+        data:id
       })
     }catch(err){
       console.log(err)

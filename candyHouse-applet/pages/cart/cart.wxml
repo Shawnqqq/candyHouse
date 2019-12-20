@@ -4,117 +4,29 @@
       <van-icon name="location-o" size="40rpx" custom-style="margin:30rpx 10rpx 0 0;"/>
       <view class="address-text">收货地址</view>
     </navigator>
-    <view class="delete">删除</view>
+    <view class="delete" bindtap="handleDelete">删除</view>
   </view>
   <view class="body" wx:if="{{!empty}}">
     <van-checkbox-group value="{{ orderValue }}" bind:change="onChange">
-      <view class="order-item">
-        <van-checkbox class="order-checkbox" name="a" checked-color="#FF69B4"></van-checkbox>
+      <view class="order-item"
+        wx:for="{{cartData}}"
+        wx:key="index">
+        <van-checkbox class="order-checkbox" name="{{item.id}}" checked-color="#FF69B4"></van-checkbox>
         <van-card
           custom-class="order-card"
-          price="522.00"
+          price="{{item.price}}"
           price-class="order-price"
-          desc="5.4kg"
+          desc="{{item.name}}"
           desc-class="order-desc"
-          title="渴望 (Orijen) 鸡肉味 5.4kg 猫粮"
+          title="{{item.title}}"
           title-class="order-title"
-          thumb="https://m.360buyimg.com/n1/s333x333_jfs/t1/28002/9/14924/312465/5cab1248E9a87f97f/c97db8b6ca688f10.jpg!q70.webp"
+          thumb="{{item.image_url}}"
           thumb-mode="widthFix"
         >
           <view slot="footer" class="order-item-footer">
-            <view class="reduce">-</view>
-            <view class="num">1</view>
-            <view class="add">+</view>
-          </view>
-        </van-card>
-      </view>
-      <view class="order-item">
-        <van-checkbox class="order-checkbox" name="b" checked-color="#FF69B4"></van-checkbox>
-        <van-card
-          custom-class="order-card"
-          price="5222.00"
-          origin-price="5888.00"
-          price-class="order-price"
-          origin-price-class="order-origin-price"
-          desc="5.4kg"
-          desc-class="order-desc"
-          title="渴望 (Orijen) 鸡肉味 5.4kg 猫粮"
-          title-class="order-title"
-          thumb="https://m.360buyimg.com/n1/s333x333_jfs/t1/28002/9/14924/312465/5cab1248E9a87f97f/c97db8b6ca688f10.jpg!q70.webp"
-          thumb-mode="widthFix"
-        >
-          <view slot="footer" class="order-item-footer">
-            <view class="reduce">-</view>
-            <view class="num">1</view>
-            <view class="add">+</view>
-          </view>
-        </van-card>
-      </view>
-      <view class="order-item">
-        <van-checkbox class="order-checkbox" name="c" checked-color="#FF69B4"></van-checkbox>
-        <van-card
-          custom-class="order-card"
-          price="5222.00"
-          origin-price="5888.00"
-          price-class="order-price"
-          origin-price-class="order-origin-price"
-          desc="5.4kg"
-          desc-class="order-desc"
-          title="渴望 (Orijen) 鸡肉味 5.4kg 猫粮"
-          title-class="order-title"
-          thumb="https://m.360buyimg.com/n1/s333x333_jfs/t1/28002/9/14924/312465/5cab1248E9a87f97f/c97db8b6ca688f10.jpg!q70.webp"
-          thumb-mode="widthFix"
-        >
-          <view slot="footer" class="order-item-footer">
-            <view class="reduce">-</view>
-            <view class="num">1</view>
-            <view class="add">+</view>
-          </view>
-          <view slot="bottom" class="order-item-button">
-          </view>
-        </van-card>
-      </view>
-      <view class="order-item">
-        <van-checkbox class="order-checkbox" name="b" checked-color="#FF69B4"></van-checkbox>
-        <van-card
-          custom-class="order-card"
-          price="5222.00"
-          origin-price="5888.00"
-          price-class="order-price"
-          origin-price-class="order-origin-price"
-          desc="5.4kg"
-          desc-class="order-desc"
-          title="渴望 (Orijen) 鸡肉味 5.4kg 猫粮"
-          title-class="order-title"
-          thumb="https://m.360buyimg.com/n1/s333x333_jfs/t1/28002/9/14924/312465/5cab1248E9a87f97f/c97db8b6ca688f10.jpg!q70.webp"
-          thumb-mode="widthFix"
-        >
-          <view slot="footer" class="order-item-footer">
-            <view class="reduce">-</view>
-            <view class="num">1</view>
-            <view class="add">+</view>
-          </view>
-        </van-card>
-      </view>
-      <view class="order-item">
-        <van-checkbox class="order-checkbox" name="b" checked-color="#FF69B4"></van-checkbox>
-        <van-card
-          custom-class="order-card"
-          price="5222.00"
-          origin-price="5888.00"
-          price-class="order-price"
-          origin-price-class="order-origin-price"
-          desc="5.4kg"
-          desc-class="order-desc"
-          title="渴望 (Orijen) 鸡肉味 5.4kg 猫粮"
-          title-class="order-title"
-          thumb="https://m.360buyimg.com/n1/s333x333_jfs/t1/28002/9/14924/312465/5cab1248E9a87f97f/c97db8b6ca688f10.jpg!q70.webp"
-          thumb-mode="widthFix"
-        >
-          <view slot="footer" class="order-item-footer">
-            <view class="reduce">-</view>
-            <view class="num">1</view>
-            <view class="add">+</view>
+            <view class="reduce" data-id="{{item.cart_id}}" bindtap="handleReduce">-</view>
+            <view class="num">{{item.num}}</view>
+            <view class="add" data-id="{{item.cart_id}}" bindtap="handleAdd">+</view>
           </view>
         </van-card>
       </view>
@@ -127,7 +39,7 @@
   </view>
   <view class="footer">
     <van-submit-bar
-      price="{{113050}}"
+      price="{{total}}"
       price-class="footer-price"
       button-class="footer-submit"
       button-text="去结算"

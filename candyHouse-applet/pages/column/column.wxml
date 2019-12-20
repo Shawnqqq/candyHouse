@@ -17,7 +17,7 @@
         <view class="product-name">{{item.name}}</view>
         <view class="product-price">
           <text class="price">¥{{item.price}}</text>
-          <text class="price-origin">¥{{item.price_origin}}</text>
+          <text class="price-origin" wx:if="{{item.price_origin}}">¥{{item.price_origin}}</text>
         </view>
       </navigator>
     </view>

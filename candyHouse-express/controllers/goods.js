@@ -1,5 +1,9 @@
 const goodsModels = require('../models/goods')
 const skuModels = require('../models/sku')
+const landing_page_recommendModels = require('../models/landing_page_recommend')
+const column_goodsModels = require('../models/column_goods')
+const recommendModels = require('../models/recommend')
+const cartModels = require('../models/cart')
 
 const goodsController = {
   insert:async function(req,res,next){
@@ -177,6 +181,9 @@ const goodsController = {
     try{
       await goodsModels.delete(id)
       await skuModels.where({goods_id:id}).del()
+      await column_goodsModels.where({goods_id:id}).del()
+      await landing_page_recommendModels.where({goods_id:id}).del()
+      await recommendModels.where({goods_id:id}).del()
       res.json({
         code:200,
         message:"删除成功"

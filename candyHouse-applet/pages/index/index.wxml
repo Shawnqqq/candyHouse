@@ -65,7 +65,7 @@
         </view>
         <scroll-view class="column-item-content" enable-flex="true" scroll-x="true">
           <navigator class="product-item"
-            url="/pages/product/product?id={{item.data.id}}"
+            url="/pages/product/product?id={{goods.id}}"
             wx:for="{{item.data.goods}}"
             wx:for-index="idx"
             wx:key="idx"

@@ -17,9 +17,13 @@ const columnController = require('../controllers/column')
 const wxIndexController = require('../controllers/wxIndex')
 const wxCategoryController = require('../controllers/wxCategory')
 const wxLandingController = require('../controllers/wxLanding')
+const wxGoodsController = require('../controllers/wxGoods')
+const wxOrderController = require('../controllers/wxOrder')
+const wxcartController = require('../controllers/wxCart')
 
 // 登录
 router.post('/authLogin',authController.login)
+router.post('/wxauth/login',authController.wxLogin)
 
 // 七牛云
 router.get('/qiniu',qiniuController.upload)
@@ -92,6 +96,14 @@ router.get('/wxRecommend',wxCategoryController.recommend)
 router.get('/wxCategory/:id',wxCategoryController.single)
 // 活动页
 router.get('/wxLanding/:id',wxLandingController.landing)
+// 商品页
+router.get('/wxGoods/:id',wxGoodsController.single)
+// 购物车
+router.post('/wxCart',wxcartController.insert)
+router.get('/wxCart/:id',wxcartController.single)
+router.put('/wxCartReduce/:id',wxcartController.reduce)
+router.put('/wxCartAdd/:id',wxcartController.add)
+router.put('/wxCartDel',wxcartController.delete)
 
 
 module.exports = router;

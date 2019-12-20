@@ -2,8 +2,8 @@
   position: relative;
 }
 .return{
-  position: absolute;
-  top: 20rpx;
+  position: fixed;
+  top: 40rpx;
   z-index: 10;
   width: 80rpx;
   height: 80rpx;
@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5rpx;
 }
 .banner{
   margin-top: 40rpx;

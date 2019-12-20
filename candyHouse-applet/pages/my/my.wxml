@@ -1,14 +1,23 @@
 <view class="container">
   <view class="banner">
-    <image class="avatar" 
+    <image class="avatar"
+      wx:if="{{!login}}"
       mode="widthFix"
-      src="../../image/avatar.png"></image>
+      src="../../image/avatar.png">
+    </image>
+    <view class="avatar-container"
+      wx:else>
+      <image class="avatar-image" 
+        mode="widthFix"
+        src="{{userInfo.avatarUrl}}">
+      </image> 
+    </view>
     <view class="banner-content" wx:if="{{login}}">
-      <view class="nickName">春日野穹</view>
-      <view class="welcomes">你好，尊敬的春日野穹~</view>
+      <view class="nickName">{{userInfo.nickName}}</view>
+      <view class="welcomes">你好，尊敬的{{userInfo.nickName}}~</view>
     </view>
     <view class="banner-content" wx:else>
-      <view class="login">点击登录</view>
+      <button open-type="getUserInfo" class="login" bindgetuserinfo="login">点击登录</button>
     </view>
     <view class="banner-footer">
       <view class="lable-item">
