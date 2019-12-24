@@ -37,7 +37,13 @@
             ¥<text class="price">{{item.price}}</text>
             <text class="price-origin" wx:if="{{item.price_origin}}">¥ {{item.price_origin}}</text>
           </view>
-          <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
+          <van-icon 
+            class="product-add" 
+            name="add" 
+            color="#FF69B4" 
+            size="50rpx"
+            data-id="{{item.id}}"
+            catchtap="handleCart"/>
         </view>
       </navigator>
       <van-skeleton

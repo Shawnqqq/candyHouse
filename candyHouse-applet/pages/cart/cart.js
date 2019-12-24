@@ -83,6 +83,9 @@ Page({
       method:'put',
       success:res=>{
         if(res.data.code ===200){
+          this.setData({
+            orderValue:[]
+          })
           this.onShow()
         }else{
           wx.showToast({
@@ -126,6 +129,9 @@ Page({
       data:{delete_id},
       success:res=>{
         if(res.data.code = 200){
+          this.setData({
+            orderValue:[]
+          })
           this.onShow()
         }else{
           wx.showToast({
@@ -138,6 +144,27 @@ Page({
       fail:err=>{
         console.log(err)
       }
+    })
+  },
+  handleSubmit(){
+    let cartData = this.data.cartData
+    let orderValue = this.data.orderValue
+    if(!orderValue.length){
+      wx.showToast({
+        title: '没有选择商品喔',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    let order = orderValue.map(data=>{
+      return cartData.find((item)=>{
+        return item.id === data
+      })
+    })
+    order = JSON.stringify(order)
+    wx.navigateTo({
+      url: '/pages/order/order?data='+order
     })
   }
 })

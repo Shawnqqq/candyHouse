@@ -1,4 +1,5 @@
 const cartModels = require('../models/cart')
+const skuModels = require('../models/sku')
 
 const cartController = {
   insert: async function(req,res,next){
@@ -12,6 +13,45 @@ const cartController = {
         await cartModels.single(id).increment('num',num)
       }else{
         await cartModels.insert({user_id,sku_id,num})
+      }
+      res.json({
+        code:200,
+        message:"增加成功"
+      })
+    }catch(err){
+      console.log(err)
+      res.json({
+        code:0,
+        message:'服务器错误'
+      })
+    }
+  },
+  quick: async function(req,res,next){
+    let user_id = req.body.user_id;
+    let goods_id = req.body.goods_id;
+    try{
+      let skuArray = await skuModels.where({goods_id})
+      let sku = skuArray[0]
+      if(!sku){
+        res.json({
+          code:0,
+          message:"该商品缺少SKU"
+        })
+        return
+      }
+      if(sku.stock==="0"){
+        res.json({
+          code:0,
+          message:"商品已售空"
+        })
+        return
+      }
+      let cart = await cartModels.where({user_id,sku_id:sku.id})
+      if(cart[0]){
+        let id = cart[0].id
+        await cartModels.single(id).increment('num',1)
+      }else{
+        await cartModels.insert({user_id,sku_id:sku.id,num:1})
       }
       res.json({
         code:200,

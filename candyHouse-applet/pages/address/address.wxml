@@ -6,50 +6,26 @@
     text="只支持同城配送，请您选择准确的收获地址 "
   />
   <view class="address-list">
-    <view class="address-item">
+    <view class="address-item"
+      wx:for="{{addressData}}"
+      wx:key="index">
       <van-swipe-cell
-        right-width="65">
+        right-width="65"
+        data-id="{{item.id}}"
+        bind:click="changeAddress">
         <view class="address-content">
-          <view class="address">扎克斯宇宙中心 46号</view>
-          <view class="address-desc">右转第二个门口</view>
-          <van-tag plain type="success" custom-class="address-tag">学校</van-tag>
-          <van-tag type="danger">默认</van-tag>
+          <view class="address">{{item.address}}</view>
+          <view class="address-desc">{{item.description}}</view>
+          <van-tag plain type="success" custom-class="address-tag">{{item.tag}}</van-tag>
+          <van-tag type="danger" wx:if="{{item.default==='1'? true:false}}">默认</van-tag>
         </view>
         <view class="address-content">
-          <view class="address-user">蝴蝶忍</view>
-          <view class="address-phone">13112808045</view>
+          <view class="address-user">{{item.name}}</view>
+          <view class="address-phone">{{item.phone}}</view>
         </view>
-        <view slot="right">删除</view>
-      </van-swipe-cell>
-    </view>
-    <view class="address-item">
-      <van-swipe-cell
-        right-width="65">
-        <view class="address-content">
-          <view class="address">扎克斯宇宙中心 46号</view>
-          <view class="address-desc">右转第二个门口</view>
-          <van-tag plain type="success" custom-class="address-tag">学校</van-tag>
-        </view>
-        <view class="address-content">
-          <view class="address-user">蝴蝶忍</view>
-          <view class="address-phone">13112808045</view>
-        </view>
-        <view slot="right">删除</view>
-      </van-swipe-cell>
-    </view>
-    <view class="address-item">
-      <van-swipe-cell
-        right-width="65">
-        <view class="address-content">
-          <view class="address">扎克斯宇宙中心 46号</view>
-          <view class="address-desc">右转第二个门口</view>
-          <van-tag plain type="success" custom-class="address-tag">学校</van-tag>
-        </view>
-        <view class="address-content">
-          <view class="address-user">蝴蝶忍</view>
-          <view class="address-phone">13112808045</view>
-        </view>
-        <view slot="right">删除</view>
+        <view slot="right"
+          data-id="{{item.id}}"
+          bindtap="handleDelete">删除</view>
       </van-swipe-cell>
     </view>
   </view>

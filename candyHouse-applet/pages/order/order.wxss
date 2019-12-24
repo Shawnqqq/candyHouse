@@ -33,6 +33,12 @@
   margin: 0 20rpx;
   font-weight: 500;
 }
+.address-tips{
+  margin: 20rpx 20rpx;
+  font-weight: 500;
+  color: #000;
+  font-size: 30rpx;
+}
 .address-footer{
   position: absolute;
   left: 0;
@@ -47,6 +53,10 @@
   transform: translateY(-50%);
   font-size: 34rpx;
   color: rgba(136, 136, 136, 0.7);
+  width: 80rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
 }
 .order{
   width: 92%;

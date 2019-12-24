@@ -22,5 +22,9 @@ export default {
   wxCart: `${PREFIX}/wxCart`,
   wxCartReduce:`${PREFIX}/wxCartReduce`,
   wxCartAdd: `${PREFIX}/wxCartAdd`,
-  wxCartDel: `${PREFIX}/wxCartDel`
+  wxCartDel: `${PREFIX}/wxCartDel`,
+  wxCartQuick:`${PREFIX}/wxCartQuick`,
+  wxAddress: `${PREFIX}/wxAddress`,
+  wxOrderAddress: `${PREFIX}/wxOrderAddress`,
+  wxOrder: `${PREFIX}/wxOrder`
 }

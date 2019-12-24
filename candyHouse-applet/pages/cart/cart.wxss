@@ -97,6 +97,9 @@
 .footer-submit{
   background-color: #FF69B4 !important;
 }
+.submit-bar{
+  border-top: 1rpx solid #DCDCDC;
+}
 .van-submit-bar__bar{
   padding-left: 30rpx !important;
 }

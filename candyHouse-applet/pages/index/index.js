@@ -1,4 +1,5 @@
 import API from '../../global/request/api.js'
+const app = getApp()
 
 Page({
   data: {
@@ -54,6 +55,16 @@ Page({
       fail:err=>{
         console.log(err)
       }
+    })
+  },
+  handleCart(e){
+    let id = e.currentTarget.dataset.id
+    app.addCart(id).then(res=>{
+      wx.showToast({
+        title: res,
+        icon: 'none',
+        duration: 2000
+      })
     })
   }
 })

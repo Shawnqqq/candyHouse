@@ -56,6 +56,28 @@ App({
       })
     })
   },
+  addCart: function(id){
+    return new Promise((resolve,reject)=>{
+      if(!this.globalData.user_id){
+        resolve('未登录，请先登录')
+        return
+      }
+      wx.request({
+        url:API.wxCartQuick,
+        method:'POST',
+        data:{
+          user_id:this.globalData.user_id,
+          goods_id:id
+        },
+        success:res=>{
+          resolve(res.data.message)
+        },
+        fail:err=>{
+          console.log(err)
+        }
+      })
+    })
+  },
   globalData: {
     userInfo: null,
     user_id: null

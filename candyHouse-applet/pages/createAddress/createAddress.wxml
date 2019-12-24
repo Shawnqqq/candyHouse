@@ -97,5 +97,5 @@
         custom-class="default-btn" />
     </view>
   </view>
-  <view class="submit-btn" bindtap="sumbitAddress">保存并使用</view>
+  <view class="submit-btn" bindtap="sumbitAddress">保存地址</view>
 </view>

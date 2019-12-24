@@ -80,7 +80,11 @@
             <view class="product-price">
               ¥<text class="price">{{goods.price}}</text>
             </view>
-            <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx" />
+            <view class="icon-container"
+              data-id="{{goods.id}}"
+              catchtap="handleCart">
+              <van-icon class="product-add" name="add" color="#FF69B4" size="50rpx"/>
+            </view>
           </navigator>
         </scroll-view>
       </view>

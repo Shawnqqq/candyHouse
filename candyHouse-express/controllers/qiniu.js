@@ -9,14 +9,14 @@ const qiniuController = {
       const mac = new qiniu.auth.digest.Mac(accessKey,secretKey);
       
       const options = {
-        scope:'candyhouse'
+        scope:'candyhouse2'
       }
       var putPolicy = new qiniu.rs.PutPolicy(options);
       var uploadToken=putPolicy.uploadToken(mac);
 
       res.json({
         token:uploadToken,
-        domain:'http://q1d0cb6r5.bkt.clouddn.com/'
+        domain:'http://q2y4avzs8.bkt.clouddn.com/'
       })
     }
     catch(err){

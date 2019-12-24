@@ -145,7 +145,7 @@ Page({
         if(res.data.code === 200){
           this.cartNum()
           wx.hideLoading()
-        }else{
+        }else{        
           console.log(res.data.message)
         }
       },

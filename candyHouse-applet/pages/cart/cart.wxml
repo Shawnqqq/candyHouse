@@ -43,13 +43,10 @@
       price-class="footer-price"
       button-class="footer-submit"
       button-text="去结算"
-      bind:submit="onClickButton"
-      tip="{{ true }}"
+      bind:submit="handleSubmit"
+      custom-class="submit-bar"
     >
       <van-checkbox value="{{all}}" bind:change="bindAll" checked-color="#FF69B4">全选</van-checkbox>
-      <view slot="tip">
-        您的收货地址不支持同城送, <text class="tip-btn">修改地址</text>
-      </view>
     </van-submit-bar>
   </view>
 </view>

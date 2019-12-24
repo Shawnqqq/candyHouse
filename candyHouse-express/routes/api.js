@@ -20,6 +20,8 @@ const wxLandingController = require('../controllers/wxLanding')
 const wxGoodsController = require('../controllers/wxGoods')
 const wxOrderController = require('../controllers/wxOrder')
 const wxcartController = require('../controllers/wxCart')
+const wxAddressController = require('../controllers/wxAddress')
+
 
 // 登录
 router.post('/authLogin',authController.login)
@@ -100,10 +102,20 @@ router.get('/wxLanding/:id',wxLandingController.landing)
 router.get('/wxGoods/:id',wxGoodsController.single)
 // 购物车
 router.post('/wxCart',wxcartController.insert)
+router.post('/wxCartQuick',wxcartController.quick)
 router.get('/wxCart/:id',wxcartController.single)
 router.put('/wxCartReduce/:id',wxcartController.reduce)
 router.put('/wxCartAdd/:id',wxcartController.add)
 router.put('/wxCartDel',wxcartController.delete)
+// 收货地址
+router.post('/wxAddress',wxAddressController.insert)
+router.get('/wxAddress/:id',wxAddressController.single)
+router.get('/wxOrderAddress/:id',wxAddressController.default)
+router.put('/wxAddress/:id',wxAddressController.update)
+router.delete('/wxAddress/:id',wxAddressController.delete)
+// 订单
+router.post('/wxOrder',wxOrderController.insert)
+
 
 
 module.exports = router;
