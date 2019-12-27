@@ -1,0 +1,39 @@
+<view class="container">
+  <view class="swiper-tab">
+    <scroll-view 
+      scroll-x 
+      class="swiper-tab-list"
+      scroll-with-animation
+      enable-flex
+      scroll-into-view="swiper-tab-item-{{status}}"
+      >
+      <view id="swiper-tab-item-{{item.id}}"
+        class="swiper-tab-item {{status==item.id ? 'active' : none}}"
+        wx:for="{{orderStatus}}"
+        wx:key="index"
+        data-id="{{item.id}}"
+        bindtap="changeStatus"
+      >{{item.name}}</view>
+    </scroll-view>
+  </view>
+  <view class="order-list">
+    <view class="order-item"
+      wx:for="{{order}}"
+      wx:key="index"
+      data-id="{{item.id}}"
+      bindtap="handleSheet">
+      <view class="order-location">
+        <view class="order-address">{{item.location}}</view>
+        <view class="order-desc">{{item.address}}</view>
+        <view class="order-footer">
+          <view class="order-num">{{item.num}}件商品</view>
+          <view class="order-time">{{item.created_time}}</view>
+        </view>
+      </view>
+      <view class="order-goods">
+        <view class="order-price">￥{{item.total}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="order-fresh" bindtap="handleRefresh">点击刷新</view>
+</view>

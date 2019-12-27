@@ -1,0 +1,104 @@
+.container{
+  min-height: 100vh;
+  background-color: #F7F7F7;
+}
+.swiper-tab-list{
+  display: flex;
+  justify-content: space-between;
+  background-color: #2F4F4F;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+  height: 80rpx;
+}
+.swiper-tab-item{
+  font-size: 28rpx;
+  color:#A9A9A9;
+  line-height: 80rpx;
+  padding: 0 30rpx;
+  position: relative;
+}
+.swiper-tab-item.active{
+  color: #fff;
+  font-weight: 600;
+}
+.swiper-tab-item.active::after{
+  content: '';
+  position: absolute;
+  bottom: 0rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 10rpx;
+  background-color:#fff;
+}
+.order-list{
+  padding: 0 25rpx 100rpx 25rpx;
+}
+.order-item{
+  display: flex;
+  height: 200rpx;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 0rpx 20rpx 30rpx 20rpx;
+  margin: 25rpx 0;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,.05);
+  position: relative;
+}
+.order-fresh{
+  position: fixed;
+  bottom: 10rpx;
+  left: 5%;
+  width: 90%;
+  height: 70rpx;
+  font-size: 26rpx;
+  color: #fff;
+  background-color: #2F4F4F;
+  text-align: center;
+  line-height: 70rpx;
+  border-radius: 10rpx;
+}
+.order-location{
+  width: 80%;
+}
+.order-address{
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 32rpx;
+  font-weight: 600;
+  line-height: 1.8;
+}
+.order-desc{
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 26rpx;
+  color: #666;
+}
+.order-goods{
+  text-align:right;
+  width: 18%;
+}
+.order-price{
+  font-size: 32rpx;
+  color: #FF8C00;
+  line-height: 2;
+}
+.order-num{
+  font-size: 24rpx;
+  color: #777;
+  margin-right: 30rpx;
+}
+.order-footer{
+  position: absolute;
+  bottom: 20rpx;
+  left: 20rpx;
+  display: flex;
+}
+.order-time{
+  font-size: 24rpx;
+  color: #777;
+}

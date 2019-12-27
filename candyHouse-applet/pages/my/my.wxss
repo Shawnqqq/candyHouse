@@ -114,3 +114,9 @@ button::after{
 .order-title{
   font-size: 28rpx;
 }
+.management{
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  text-align: center;
+}

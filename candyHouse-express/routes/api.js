@@ -115,7 +115,13 @@ router.put('/wxAddress/:id',wxAddressController.update)
 router.delete('/wxAddress/:id',wxAddressController.delete)
 // 订单
 router.post('/wxOrder',wxOrderController.insert)
-
-
+router.get('/wxOrderStatus/:id',wxOrderController.all)
+router.get('/wxOrder/:id',wxOrderController.single)
+router.delete('/wxOrder/:id',wxOrderController.delete)
+router.get('/wxUserOrder/:id',wxOrderController.userOrder)
+// 销售管理
+router.get('/wxSales/:id',wxOrderController.sales)
+router.put('/wxSales/:id',wxOrderController.further)
+router.delete('/wxSales/:id',wxOrderController.salesDelete)
 
 module.exports = router;

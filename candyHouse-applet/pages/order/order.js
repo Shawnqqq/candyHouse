@@ -63,6 +63,9 @@ Page({
         num:arr.num
       }
     })
+    wx.showLoading({
+      title: '加载中'
+    })
     wx.request({
       url: API.wxOrder,
       method:'POST',
@@ -70,7 +73,31 @@ Page({
         user_id,total,address_id,sku
       },
       success:res=>{
-        console.log(res.data.message)
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          duration: 2000
+        })
+        wx.hideLoading()
+        if(res.data.code === 200){
+          wx.switchTab({
+            url: '/pages/cart/cart',
+            success:()=>{
+              wx.showToast({
+                title: '增加成功',
+                icon: 'none',
+                duration: 2000
+              })
+            }
+          })
+        }
+      },
+      fail:err=>{
+        console.log(err)
+        wx.hideLoading()
+      },
+      complete:()=>{
+        wx.hideLoading()
       }
     })
   }

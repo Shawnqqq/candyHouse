@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="swiper-tab">
+    <scroll-view 
+      scroll-x 
+      class="swiper-tab-list"
+      scroll-with-animation
+      enable-flex
+      scroll-into-view="swiper-tab-item-{{orderSelected}}"
+      >
+      <view id="swiper-tab-item-{{item.id}}"
+        class="swiper-tab-item {{orderSelected==item.id ? 'active' : none}}"
+        wx:for="{{orderCategory}}"
+        wx:key="index"
+        data-id="{{item.id}}"
+        bindtap="changeSelected"
+      >{{item.name}}</view>
+    </scroll-view>
+  </view>
+  <view class="order-list" wx:if="{{orderData.length}}">
+    <navigator class="order-item"
+      wx:for="{{orderData}}"
+      wx:key="index"
+      url="/pages/order_single/order_single?id={{item.id}}">
+      <view class="order-cover">
+        <image class="cover-image" mode="widthFix" src="{{item.image_url}}"></image>
+      </view>
+      <view class="order-content">
+        <view class="order-title">{{item.name ? item.name:'失效商品'}}</view>
+        <view class="order-num">共{{item.num}}件商品</view>
+        <view class="order-price">
+          实付金额：
+          <text class="price">￥{{item.total}}</text>
+        </view>
+        <view class="order-status">{{item.status}}</view>
+      </view>
+    </navigator>
+  </view>
+  <view class="order-none" wx:else>
+    <image class="order-image" mode="widthFix" src="../../image/order-none.png"></image>
+    <view class="order-title">您暂时没有相关订单！</view>
+  </view>
+</view>

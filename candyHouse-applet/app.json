@@ -1,13 +1,17 @@
 {
   "pages": [
+    "pages/my/my",
+    "pages/index/index",
+    "pages/sales/sales",
+    "pages/sales_order/sales_order",
+    "pages/order_single/order_single",
+    "pages/my_order/my_order",
+    "pages/order/order",
     "pages/cart/cart",
     "pages/address/address",
-    "pages/index/index",
-    "pages/my/my",
     "pages/product/product",
     "pages/category/category",
     "pages/column/column",
-    "pages/order/order",
     "pages/createAddress/createAddress"
   ],
   "permission": {

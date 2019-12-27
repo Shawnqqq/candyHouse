@@ -39,7 +39,7 @@ const cartController = {
         })
         return
       }
-      if(sku.stock==="0"){
+      if(sku.stock<="0"){
         res.json({
           code:0,
           message:"商品已售空"
@@ -74,7 +74,7 @@ const cartController = {
           'sku.goods_id','sku.stock',{'cart_id':'cart.id'})
         .leftJoin('goods','sku.goods_id','goods.id')
         .column({'title':'goods.name'},'goods.sold_out')
-
+        .orderBy('id','desc')
       cartData.forEach(async arr=>{
         if(!arr.name){
           await cartModels.where({sku_id:arr.id}).del()

@@ -108,7 +108,7 @@ Page({
       })
       return
     }
-    if(this.data.skuCurrent.stock === "0"){
+    if(this.data.skuCurrent.stock <= "0"){
       wx.showToast({
         title: '该商品已售空',
         icon: 'none',

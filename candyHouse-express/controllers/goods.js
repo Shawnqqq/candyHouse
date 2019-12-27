@@ -3,7 +3,6 @@ const skuModels = require('../models/sku')
 const landing_page_recommendModels = require('../models/landing_page_recommend')
 const column_goodsModels = require('../models/column_goods')
 const recommendModels = require('../models/recommend')
-const cartModels = require('../models/cart')
 
 const goodsController = {
   insert:async function(req,res,next){

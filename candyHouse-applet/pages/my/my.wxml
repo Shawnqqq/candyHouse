@@ -33,38 +33,45 @@
         <view>正品保障</view>
       </view>
     </view>
+    <navigator class="management" 
+      wx:if="{{salesman === 1}}"
+      url="/pages/sales/sales">
+      <van-icon name="setting" size="24rpx" custom-style="padding-top:10rpx"/>
+      订单配送
+    </navigator>
   </view>
   <view class="body">
     <view class="handle">
-      <view class="all">
+      <navigator class="all"
+        url="/pages/my_order/my_order?id=all">
         <view class="all-title">我的订单</view>
         <view class="all-btn">全部订单 ></view>
-      </view>
+      </navigator>
       <view class="order">
-        <view class="order-item">
+        <navigator class="order-item"
+          url="/pages/my_order/my_order?id=1">
           <van-icon size="50rpx" 
-            dot 
             color="#FF1493"
-            info="1"  
+            info="{{statistics[1]}}"
             name="send-gift-o" />
-          <view class="order-title">待发货</view>
-        </view>
-        <view class="order-item">
+          <view class="order-title">已接单</view>
+        </navigator>
+        <navigator class="order-item"
+          url="/pages/my_order/my_order?id=2">
           <van-icon size="50rpx" 
-            dot 
             color="#FF1493"
-            info="1"  
+            info="{{statistics[2]}}"  
             name="logistics" />
           <view class="order-title">配送中</view>
-        </view>
-        <view class="order-item">
+        </navigator>
+        <navigator class="order-item"
+          url="/pages/my_order/my_order?id=3">
           <van-icon size="50rpx" 
-            dot 
             color="#FF1493"
-            info="1"  
+            info="{{statistics[3]}}"  
             name="goods-collect-o" />
           <view class="order-title">已送达</view>
-        </view>
+        </navigator>
       </view>
     </view>
   </view>

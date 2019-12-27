@@ -162,6 +162,9 @@ Page({
         return item.id === data
       })
     })
+    this.setData({
+      orderValue:[]
+    })
     order = JSON.stringify(order)
     wx.navigateTo({
       url: '/pages/order/order?data='+order

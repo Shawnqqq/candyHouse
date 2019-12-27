@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="order-status">
+    <view class="status-title">{{orderInfo.status}}</view>
+    <view class="status-desc">{{orderInfo.statustips}}</view>
+  </view>
+  <view class="order-address">
+    <image class="location-logo" mode="widthFix" src="../../image/location.png"></image>
+    <view class="address-content">
+      <view class="address-userinfo">{{item.name ? item.name:'失效商品'}} {{orderInfo.phone}}</view>
+      <view class="address-location">{{orderInfo.location}}{{orderInfo.address}}{{orderInfo.description}}</view>
+    </view>
+  </view>
+  <view class="order-sku">
+    <navigator class="sku-item"
+      wx:for="{{skuData}}"
+      wx:key="index"
+      url="/pages/product/product?id={{item.goods_id}}">
+      <image class="item-image" mode="widthFix" src="{{item.image_url}}"></image>
+      <view class="order-content">
+        <view class="order-title">{{item.title ? item.title:'失效商品'}}</view>
+        <view class="order-name">{{item.name ? item.name:'失效商品'}}</view>
+        <view class="order-price">
+          <view class="price">￥{{item.price ? item.price:'失效商品'}}</view>
+          <view class="num">x{{item.num}}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="order-info">
+    <view class="info-item">
+      <view class="info-title">实付金额：</view>
+      <view class="info-content info-price">￥{{orderInfo.total}}</view>
+    </view>
+    <view class="info-item">
+      <view class="info-title">支付方式：</view>
+      <view class="info-content">线下支付</view>
+    </view>
+    <view class="info-item">
+      <view class="info-title">订单编号：</view>
+      <view class="info-content">{{orderInfo.order}}</view>
+    </view>
+    <view class="info-item">
+      <view class="info-title">下单时间：</view>
+      <view class="info-content">{{orderInfo.created_time}}</view>
+    </view>
+  </view>
+  <view class="contact-sell cancel"
+    wx:if="{{orderInfo.status === '待接单'}}"
+    bindtap="handleDelete"
+    >取消订单</view>
+  <view class="contact-sell" bindtap="handleSell">联系商家</view>
+</view>

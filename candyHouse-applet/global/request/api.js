@@ -26,5 +26,9 @@ export default {
   wxCartQuick:`${PREFIX}/wxCartQuick`,
   wxAddress: `${PREFIX}/wxAddress`,
   wxOrderAddress: `${PREFIX}/wxOrderAddress`,
-  wxOrder: `${PREFIX}/wxOrder`
+  wxOrder: `${PREFIX}/wxOrder`,
+  wxOrderStatus: `${PREFIX}/wxOrderStatus`,
+  wxOrder: `${PREFIX}/wxOrder`,
+  wxUserOrder: `${PREFIX}/wxUserOrder`,
+  wxSales: `${PREFIX}/wxSales`
 }
