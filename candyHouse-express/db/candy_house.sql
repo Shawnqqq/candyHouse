@@ -11,7 +11,7 @@
  Target Server Version : 100316
  File Encoding         : 65001
 
- Date: 24/12/2019 18:52:37
+ Date: 31/12/2019 19:02:22
 */
 
 SET NAMES utf8mb4;
@@ -35,13 +35,15 @@ CREATE TABLE `address`  (
   `tag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `default` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of address
 -- ----------------------------
 INSERT INTO `address` VALUES (1, '1', '橘右奇', '2', '13112808048', '广东省广州市增城区健生路', '扎克斯编程学习中心', '进小区右转', '23.290233612060547', '113.82756805419922', '学校', '0');
-INSERT INTO `address` VALUES (2, '1', '野柚', '1', '13112542576', '广东省广州市增城区荔城大道13-19号', '宜博电竞馆(广州增城旗舰店)', '99号电脑', '23.29145050048828', '113.82965087890625', '公司', '1');
+INSERT INTO `address` VALUES (2, '1', '野柚', '1', '13112542576', '广东省广州市增城区荔城大道13-19号', '宜博电竞馆(广州增城旗舰店)', '99号电脑', '23.29145050048828', '113.82965087890625', '公司', '0');
+INSERT INTO `address` VALUES (3, '2', '小八', '2', '13222226666', '广东省广州市增城区健生路', '扎克斯编程学习中心', 'ujn', '23.290233612060547', '113.82756805419922', '公司', '1');
+INSERT INTO `address` VALUES (4, '2', '小八', '2', '13222226666', '广东省广州市增城区健生路', '扎克斯编程学习中心', 'ujn', '23.290233612060547', '113.82756805419922', '公司', '0');
 
 -- ----------------------------
 -- Table structure for banner_index
@@ -74,13 +76,13 @@ CREATE TABLE `cart`  (
   `sku_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `num` int(11) NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cart
 -- ----------------------------
-INSERT INTO `cart` VALUES (3, '1', '8', 2);
-INSERT INTO `cart` VALUES (10, '1', '14', 1);
+INSERT INTO `cart` VALUES (27, '1', '24', 1);
+INSERT INTO `cart` VALUES (35, '2', '10', 1);
 
 -- ----------------------------
 -- Table structure for category
@@ -192,16 +194,16 @@ CREATE TABLE `goods`  (
   `image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `sold_out` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT '0',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
 INSERT INTO `goods` VALUES (1, '海南精选红心木瓜 2个装 单果重约800-1000g 新鲜水果', '海南精选红心木瓜', '1', 29.90, 39.90, '[{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882830045_papaya.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882837272_papaya-banner-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882854454_papaya-banner-02.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882857713_papaya-banner-03.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882861632_papaya-banner-04.jpg\"}]', '<p><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882600584_papaya-01.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882621735_papaya-02.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882630929_papaya-03.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882654314_papaya-04.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882658157_papaya-05.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882663040_papaya-06.jpg\"></p>', '0', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882670203_papaya.jpg', '0');
-INSERT INTO `goods` VALUES (2, '越南玉芒青皮芒果2.5斤（单果约200-300g）新鲜水果', '越南玉芒青皮芒果', '1', 9.90, NULL, '[{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884635760_Mango-banner-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884639420_Mango-banner-02.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884643253_Mango-banner-03.jpg\"}]', '<p><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884590941_Mango-editor-01.gif\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884595025_Mango-editor-02.gif\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884599539_Mango-editor-03.gif\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884603509_Mango-editor-04.gif\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884612767_Mango-editor-05.gif\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884616171_Mango-editor-06.gif\"></p>', '0', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884527775_Mango.jpg', '0');
-INSERT INTO `goods` VALUES (3, '静宁馆 红六福 特产水果 红富士苹果 12枚65#—70#箱装 新鲜水果苹果 顺丰全国免邮 西北', '【基地直供】产自海拔1700米黄土高原苹果适生区生态果园恒温保鲜质量追溯', '1', 19.90, 25.90, '[{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885501750_apple.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885505378_apple-banner-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885507945_apple-banner-02.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885510947_apple-banner-03.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885513604_apple-banner-04.jpg\"}]', '<p><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885482934_apple-editor-01.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885485738_apple-editor-02.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885488765_apple-editor-03.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885491538_apple-editor-04.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885494761_apple-editor-05.jpg\"></p>', '0', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885419581_apple.jpg', '0');
+INSERT INTO `goods` VALUES (2, '越南玉芒青皮芒果2.5斤（单果约200-300g）新鲜水果', '越南玉芒青皮芒果', '1', 9.90, NULL, '[{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884635760_Mango-banner-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884639420_Mango-banner-02.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884643253_Mango-banner-03.jpg\"}]', '<p><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884590941_Mango-editor-01.gif\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884595025_Mango-editor-02.gif\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884599539_Mango-editor-03.gif\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884603509_Mango-editor-04.gif\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884612767_Mango-editor-05.gif\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884616171_Mango-editor-06.gif\"></p>', '1', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884527775_Mango.jpg', '0');
+INSERT INTO `goods` VALUES (3, '静宁馆 红六福 特产水果 红富士苹果 12枚65#—70#箱装 新鲜水果苹果 顺丰全国免邮 西北', '【基地直供】产自海拔1700米黄土高原苹果适生区生态果园恒温保鲜质量追溯', '1', 19.90, 25.90, '[{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885501750_apple.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885505378_apple-banner-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885507945_apple-banner-02.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885510947_apple-banner-03.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885513604_apple-banner-04.jpg\"}]', '<p><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885482934_apple-editor-01.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885485738_apple-editor-02.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885488765_apple-editor-03.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885491538_apple-editor-04.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885494761_apple-editor-05.jpg\"></p>', '1', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885419581_apple.jpg', '0');
 INSERT INTO `goods` VALUES (5, '百威（Budweiser）啤酒经典醇正500ml*18听整箱装啤酒国产啤酒', '百威（Budweiser）啤酒经典醇正500ml*18听整箱装啤酒国产啤酒', '3', 109.00, 128.00, '[{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947676794_beer.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947846227_beer-banner-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947849464_beer-banner-02.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947852480_beer-banner-03.jpg\"}]', '<p><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947652351_beer-editor-01.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947655262_beer-editor-02.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947659266_beer-editor-03.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947664671_beer-editor-04.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947668663_beer-editor-05.jpg\"></p>', '0', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947626364_beer.jpg', '0');
-INSERT INTO `goods` VALUES (6, '蒙牛(MENGNIU)纯甄草莓果粒风', '精选优质草莓，进口丹麦菌种，纯正生牛乳，轻享慢发酵', '4', 53.90, NULL, '[{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948412273_milk-banner-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948416756_milk-banner-02.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948421266_milk-banner-03.jpg\"}]', '<p><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948397775_milk-editor-01.jpg\"></p>', '0', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948258546_milk.jpg', '0');
+INSERT INTO `goods` VALUES (6, '蒙牛(MENGNIU)纯甄草莓果粒风', '精选优质草莓，进口丹麦菌种，纯正生牛乳，轻享慢发酵', '4', 53.90, NULL, '[{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948412273_milk-banner-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948416756_milk-banner-02.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948421266_milk-banner-03.jpg\"}]', '<p><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948397775_milk-editor-01.jpg\"></p>', '1', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948258546_milk.jpg', '0');
 INSERT INTO `goods` VALUES (7, '奥利奥(OREO) 夹心饼干 零食 原味696g(盒装)', '亿滋系列商品，玩转奥利奥，秀出新趣味，零食饼干', '5', 26.50, 28.50, '[{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575949746406_oreo-banner-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575949751156_oreo-banner-02.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575949754860_oreo-banner-03.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575949759704_oreo-banner-04.jpg\"}]', '<p><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575949728067_oreo-editor-01.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575949730990_oreo-editor-02.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575949734495_oreo-editor-03.jpg\"></p>', '0', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575949672611_oreo.jpg', '0');
 INSERT INTO `goods` VALUES (8, '乐事 香辣小龙虾味薯片 75克/袋', '真薯原切、够薄够脆、唇齿留香', '5', 10.50, 12.50, '[{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657721202_joy-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657728935_joy-01-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657742209_joy-banner.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657746435_joy-01-02.jpg\"}]', '<p><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657660858_joy-editor-01.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657666607_joy-editor-02.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657670511_joy-editor-03.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657674142_joy-editor-04.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657682420_joy-editor-05.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657689139_joy-editor-06.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657693886_joy-editor-07.jpg\"></p>', '0', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657641632_joy-01.jpg', '0');
 INSERT INTO `goods` VALUES (9, '乐事 蒲烧鳗鱼味薯片 75克/袋', '真薯原切、够薄够脆、唇齿留香', '5', 10.50, 11.50, '[{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657971935_joy-03.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657975948_joy-03-01.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657980522_joy-banner.jpg\"},{\"url\":\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657995213_joy-03-02.jpg\"}]', '<p><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657942265_joy-02editor-01.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657944999_joy-02editor-02.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657948218_joy-02editor-03.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657951152_joy-02editor-04.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657954609_joy-02editor-05.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657957952_joy-02editor-06.jpg\"><img src=\"http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657962949_joy-02editor-07.jpg\"></p>', '0', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657923473_joy-03.jpg', '1');
@@ -285,12 +287,19 @@ CREATE TABLE `order`  (
   `order` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `created_time` timestamp(0) NULL DEFAULT current_timestamp(0),
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order
 -- ----------------------------
-INSERT INTO `order` VALUES (1, '2', '1', 248.50, '0', '1577184681259', '2019-12-24 18:51:21');
+INSERT INTO `order` VALUES (1, '1', '1', 79.50, '0', '1577246138912', '2019-12-25 11:55:38');
+INSERT INTO `order` VALUES (5, '1', '1', 53.90, '3', '1577246561407', '2019-12-25 12:02:41');
+INSERT INTO `order` VALUES (7, '2', '1', 199.80, '3', '1577444448442', '2019-12-27 19:00:48');
+INSERT INTO `order` VALUES (8, '2', '1', 10.50, '0', '1577697082807', '2019-12-30 17:11:22');
+INSERT INTO `order` VALUES (9, '2', '1', 16.60, '0', '1577697085923', '2019-12-31 17:11:25');
+INSERT INTO `order` VALUES (12, '2', '1', 9.90, '1', '1577697112981', '2019-12-31 17:11:52');
+INSERT INTO `order` VALUES (15, '3', '2', 375.10, '1', '1577786167934', '2019-12-31 17:56:07');
+INSERT INTO `order` VALUES (16, '3', '2', 10.50, '2', '1577786366927', '2019-12-31 17:59:26');
 
 -- ----------------------------
 -- Table structure for order_sku
@@ -302,13 +311,22 @@ CREATE TABLE `order_sku`  (
   `sku_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `num` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order_sku
 -- ----------------------------
-INSERT INTO `order_sku` VALUES (1, '1', '14', '1');
-INSERT INTO `order_sku` VALUES (2, '1', '8', '2');
+INSERT INTO `order_sku` VALUES (1, '1', '12', '3');
+INSERT INTO `order_sku` VALUES (6, '5', '10', '1');
+INSERT INTO `order_sku` VALUES (8, '7', '31', '2');
+INSERT INTO `order_sku` VALUES (9, '8', '14', '1');
+INSERT INTO `order_sku` VALUES (10, '9', '26', '1');
+INSERT INTO `order_sku` VALUES (13, '12', '3', '1');
+INSERT INTO `order_sku` VALUES (16, '15', '3', '3');
+INSERT INTO `order_sku` VALUES (17, '15', '14', '2');
+INSERT INTO `order_sku` VALUES (18, '15', '11', '3');
+INSERT INTO `order_sku` VALUES (19, '15', '1', '2');
+INSERT INTO `order_sku` VALUES (20, '16', '14', '1');
 
 -- ----------------------------
 -- Table structure for poster_index
@@ -335,7 +353,7 @@ CREATE TABLE `recommend`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `goods_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of recommend
@@ -346,6 +364,7 @@ INSERT INTO `recommend` VALUES (5, '11');
 INSERT INTO `recommend` VALUES (6, '8');
 INSERT INTO `recommend` VALUES (7, '10');
 INSERT INTO `recommend` VALUES (8, '1');
+INSERT INTO `recommend` VALUES (9, '3');
 
 -- ----------------------------
 -- Table structure for sku
@@ -360,37 +379,37 @@ CREATE TABLE `sku`  (
   `stock` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT '0',
   `sold` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT '0',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sku
 -- ----------------------------
-INSERT INTO `sku` VALUES (1, '海南红心木瓜特级大果2个', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882880958_papaya.jpg', 29.90, '1', '80', '0');
+INSERT INTO `sku` VALUES (1, '海南红心木瓜特级大果2个', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882880958_papaya.jpg', 29.90, '1', '28', '0');
 INSERT INTO `sku` VALUES (2, '海南红心木瓜特级大果4个', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575882898949_papaya-banner-02.jpg', 55.90, '1', '30', '0');
-INSERT INTO `sku` VALUES (3, '越南玉芒青皮芒果', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884647235_Mango.jpg', 9.90, '2', '160', '0');
-INSERT INTO `sku` VALUES (4, '12枚', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885534960_apple.jpg', 19.90, '3', '366', '0');
+INSERT INTO `sku` VALUES (3, '越南玉芒青皮芒果', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575884647235_Mango.jpg', 9.90, '2', '155', '1');
+INSERT INTO `sku` VALUES (4, '12枚', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575885534960_apple.jpg', 19.90, '3', '363', '1');
 INSERT INTO `sku` VALUES (5, '24枚', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575900668155_apple-banner-01.jpg', 37.90, '3', '112', '0');
 INSERT INTO `sku` VALUES (8, '百威啤酒330ml*24听 ', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947912932_beer-banner-03.jpg', 119.00, '5', '357', '0');
 INSERT INTO `sku` VALUES (9, '百威啤酒500ml*18听 ', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575947883587_beer.jpg', 109.00, '5', '666', '0');
-INSERT INTO `sku` VALUES (10, '草莓果粒 礼盒装 200g*10', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948429254_milk.jpg', 53.90, '6', '355', '0');
-INSERT INTO `sku` VALUES (11, '香浓原味24盒 家庭装 200g*24', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948513214_milk-skujpg.jpg', 88.20, '6', '311', '0');
-INSERT INTO `sku` VALUES (12, '原味 1件', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575949765271_oreo.jpg', 26.50, '7', '211', '0');
+INSERT INTO `sku` VALUES (10, '草莓果粒 礼盒装 200g*10', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948429254_milk.jpg', 53.90, '6', '352', '4');
+INSERT INTO `sku` VALUES (11, '香浓原味24盒 家庭装 200g*24', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575948513214_milk-skujpg.jpg', 88.20, '6', '308', '0');
+INSERT INTO `sku` VALUES (12, '原味 1件', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575949765271_oreo.jpg', 26.50, '7', '23', '0');
 INSERT INTO `sku` VALUES (13, '巧克力味 1件', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575949828816_oreo-sku.jpg', 28.50, '7', '188', '0');
-INSERT INTO `sku` VALUES (14, '蒲烧鳗鱼味 75g/1袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657753954_joy-03.jpg', 10.50, '8', '211', '0');
+INSERT INTO `sku` VALUES (14, '蒲烧鳗鱼味 75g/1袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657753954_joy-03.jpg', 10.50, '8', '205', '0');
 INSERT INTO `sku` VALUES (15, '香辣小龙虾味 75g/1袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576657759745_joy-01.jpg', 10.50, '8', '333', '0');
 INSERT INTO `sku` VALUES (16, '海盐黑胡椒味  75g/1袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576658387862_joy-02.jpg', 10.50, '8', '431', '0');
 INSERT INTO `sku` VALUES (17, '海盐黑胡椒味 75g/1袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576658391736_joy-sku.jpg', 10.50, '8', '322', '0');
 INSERT INTO `sku` VALUES (18, '蒲烧鳗鱼味 75g/1袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576658000378_joy-03.jpg', 10.50, '9', '432', '0');
 INSERT INTO `sku` VALUES (19, '香辣小龙虾味  75g/1袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576658004366_joy-01.jpg', 10.50, '9', '332', '0');
 INSERT INTO `sku` VALUES (20, '金黄炒蟹味  75g/1袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576658407959_joy-02.jpg', 10.50, '9', '412', '0');
-INSERT INTO `sku` VALUES (21, '金黄炒蟹味 75g/一袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576658317899_joy-02.jpg', 10.50, '10', '411', '0');
+INSERT INTO `sku` VALUES (21, '金黄炒蟹味 75g/一袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576658317899_joy-02.jpg', 10.50, '10', '408', '0');
 INSERT INTO `sku` VALUES (22, '蒲烧鳗鱼味 75g/一袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576658153106_joy-03.jpg', 10.50, '10', '388', '0');
 INSERT INTO `sku` VALUES (23, '香辣小老虾味 75g/一袋', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1576658163899_joy-01.jpg', 10.50, '10', '365', '0');
-INSERT INTO `sku` VALUES (24, '巴沙鱼 500g', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575961326408_fish.jpg', 25.80, '11', '54', '0');
+INSERT INTO `sku` VALUES (24, '巴沙鱼 500g', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575961326408_fish.jpg', 25.80, '11', '53', '0');
 INSERT INTO `sku` VALUES (25, '秋刀鱼 500g', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575961371746_fish-sku.jpg', 19.80, '11', '32', '0');
-INSERT INTO `sku` VALUES (26, '新鲜野生洋槐花1斤装 ', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575962477511_flower.jpg', 16.60, '12', '56', '0');
-INSERT INTO `sku` VALUES (27, '玉米油3.818L', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575963704648_oil.jpg', 49.90, '13', '43', '0');
-INSERT INTO `sku` VALUES (28, '亮净厨房去重油剂1L', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575964114955_cleaner.jpg', 15.90, '14', '322', '0');
+INSERT INTO `sku` VALUES (26, '新鲜野生洋槐花1斤装 ', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575962477511_flower.jpg', 16.60, '12', '42', '0');
+INSERT INTO `sku` VALUES (27, '玉米油3.818L', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575963704648_oil.jpg', 49.90, '13', '40', '0');
+INSERT INTO `sku` VALUES (28, '亮净厨房去重油剂1L', 'http://q2y4avzs8.bkt.clouddn.com/candyHouse/1575964114955_cleaner.jpg', 15.90, '14', '321', '0');
 
 -- ----------------------------
 -- Table structure for user
@@ -401,12 +420,14 @@ CREATE TABLE `user`  (
   `nickname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `openid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `salesman` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, '亚提密斯', 'https://wx.qlogo.cn/mmopen/vi_32/ABFib3UEib8Y1qPPibL8cG9MzAsVmIjzBmQAhI6r8ibwqOciaCgTfhXNia8h3HGag6gKd1iccUnoPIFicLtJcpojFeqhlA/132', 'o7em15MDf4I3iizGHTMtaaccDOD4');
+INSERT INTO `user` VALUES (1, '亚提密斯', 'https://wx.qlogo.cn/mmopen/vi_32/ABFib3UEib8Y1qPPibL8cG9MzAsVmIjzBmQAhI6r8ibwqOciaCgTfhXNia8h3HGag6gKd1iccUnoPIFicLtJcpojFeqhlA/132', 'o7em15MDf4I3iizGHTMtaaccDOD4', 1);
+INSERT INTO `user` VALUES (2, '董一Amcent', 'https://wx.qlogo.cn/mmopen/vi_32/JtLYoVdPprs3doZ9xxMfsdickM1tpkzwgMSYvxJVUvyfcMENmM4VDEl8ZmYyT8cKNf1e9A4TuMre1pUEuq6Xu6w/132', 'o7em15IR9Bh78N7PUUEGgBsglPxE', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;

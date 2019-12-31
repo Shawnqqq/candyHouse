@@ -2,6 +2,7 @@ const orderModels = require('../models/order');
 const order_skuModels = require('../models/order_sku');
 const cartModels = require('../models/cart')
 const skuModels = require('../models/sku')
+const goodsModels = require('../models/goods');
 const userModels = require('../models/user');
 const {formatTime} = require('../utils/formatDate');
 
@@ -206,6 +207,18 @@ const orderController = {
     try{
       status = Number(status)
       await orderModels.single(id).update({status:status+1})
+      if(status === 2){
+        let order_sku = await order_skuModels.where({order_id:id})
+        let sku_id = order_sku.map(arr=>{
+          return arr.sku_id
+        })
+        await skuModels.whereIn('id',sku_id).increment('sold',1)
+        let sku = await skuModels.whereIn('id',sku_id)
+        let goods_id = sku.map(arr=>{
+          return arr.goods_id
+        })
+        await goodsModels.whereIn('id',goods_id).increment('sold',1)
+      }
       res.json({
         code:200,
         message:"修改成功"

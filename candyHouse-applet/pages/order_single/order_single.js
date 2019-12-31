@@ -43,7 +43,7 @@ Page({
   handleDelete(){
     wx.showModal({
       title: '是否取消该订单',
-      success (res) {
+      success:(res)=> {
         if (res.confirm) {
           let id = this.data.orderInfo.id
           wx.request({

@@ -6,7 +6,7 @@
   <view class="order-address">
     <image class="location-logo" mode="widthFix" src="../../image/location.png"></image>
     <view class="address-content">
-      <view class="address-userinfo">{{item.name ? item.name:'失效商品'}} {{orderInfo.phone}}</view>
+      <view class="address-userinfo">{{orderInfo.name ? orderInfo.name : '失效商品'}} {{orderInfo.phone}}</view>
       <view class="address-location">{{orderInfo.location}}{{orderInfo.address}}{{orderInfo.description}}</view>
     </view>
   </view>

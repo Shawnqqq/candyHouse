@@ -14,6 +14,8 @@ const bannerController = require('../controllers/banner')
 const posterController = require('../controllers/poster')
 const classifyController = require('../controllers/classify')
 const columnController = require('../controllers/column')
+const orderController = require('../controllers/order')
+const userController = require('../controllers/user')
 const wxIndexController = require('../controllers/wxIndex')
 const wxCategoryController = require('../controllers/wxCategory')
 const wxLandingController = require('../controllers/wxLanding')
@@ -21,7 +23,7 @@ const wxGoodsController = require('../controllers/wxGoods')
 const wxOrderController = require('../controllers/wxOrder')
 const wxcartController = require('../controllers/wxCart')
 const wxAddressController = require('../controllers/wxAddress')
-
+const dashboardController = require('../controllers/dashboard')
 
 // 登录
 router.post('/authLogin',authController.login)
@@ -85,6 +87,17 @@ router.get('/column/:id',middleAuth,columnController.single)
 router.put('/column/:id',middleAuth,columnController.update)
 router.post('/columnGoods/:id',middleAuth,columnController.recommend)
 router.put('/columnGoods/:id',middleAuth,columnController.unRecommend)
+// 订单管理
+router.get('/order',middleAuth,orderController.all)
+router.delete('/order/:id',middleAuth,orderController.delete)
+router.get('/order/:id',middleAuth,orderController.single)
+// 用户管理
+router.get('/user',middleAuth,userController.all)
+router.put('/user/:id',middleAuth,userController.update)
+router.get('/user/:id',middleAuth,userController.single)
+// 概论页
+router.get('/index',middleAuth,dashboardController.data)
+
 
 // 小程序接口
 // 首页数据
