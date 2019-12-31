@@ -25,7 +25,12 @@ const API = {
   classifyItem: id => `${PREFIX}/classify/${id}`,
   column: `${PREFIX}/column`,
   columnItem: id => `${PREFIX}/column/${id}`,
-  columnGoods: id => `${PREFIX}/columnGoods/${id}`
+  columnGoods: id => `${PREFIX}/columnGoods/${id}`,
+  order: `${PREFIX}/order`,
+  orderItem: id => `${PREFIX}/order/${id}`,
+  user: `${PREFIX}/user`,
+  userItem: id => `${PREFIX}/user/${id}`,
+  index: `${PREFIX}/index`
 };
 
 export default API;

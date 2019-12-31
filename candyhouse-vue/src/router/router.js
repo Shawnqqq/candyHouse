@@ -38,6 +38,13 @@ const Recommend = () =>
   import(/* webpackChunkName: "Goods" */ "@/views/Recommend");
 const GoodsCreate = () =>
   import(/* webpackChunkName: "Goods" */ "@/views/GoodsCreate");
+const Order = () => import(/* webpackChunkName: "Order" */ "@/views/Order");
+const OrderSingle = () =>
+  import(/* webpackChunkName: "Order" */ "@/views/OrderSingle");
+const User = () => import(/* webpackChunkName: "User" */ "@/views/User");
+const UserSingle = () =>
+  import(/* webpackChunkName: "User" */ "@/views/UserSingle");
+
 
 import BasicLayout from "@/components/BasicLayout";
 
@@ -354,6 +361,70 @@ export default [
               },
               breadcrumb: {
                 title: "商品添加"
+              }
+            }
+          }
+        ]
+      },
+      {
+        path: "/admin/order",
+        name: "orderRoot",
+        component: { render: h => h("router-view") },
+        redirect: { name: "order" },
+        meta: {
+          nav: {
+            icon: "el-icon-s-order",
+            title: "订单查询"
+          },
+          breadcrumb: {
+            title: "订单查询"
+          }
+        },
+        children: [
+          {
+            path: "/admin/order",
+            name: "order",
+            component: Order
+          },
+          {
+            path: "/admin/order/single",
+            name: "orderSingle",
+            component: OrderSingle,
+            meta: {
+              breadcrumb: {
+                title: "订单详情"
+              }
+            }
+          }
+        ]
+      },
+      {
+        path: "/admin/user",
+        name: "userRoot",
+        component:{ render: h => h("router-view") },
+        redirect: { name: 'user' },
+        meta: {
+          nav:{
+            icon: 'el-icon-user-solid',
+            title: "用户查询"
+          },
+          breadcrumb: {
+            title: "用户查询"
+          }
+        },
+        children: [
+          {
+            path: "/admin/user",
+            name: "user",
+            component: User
+          },
+          {
+            path: "/admin/user/single",
+            name: "userSingle",
+            component: UserSingle,
+            meta: {
+              breadcrumb: {
+                title: "用户信息"
               }
             }
           }
