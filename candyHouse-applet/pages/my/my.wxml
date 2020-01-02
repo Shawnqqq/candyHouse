@@ -49,6 +49,14 @@
       </navigator>
       <view class="order">
         <navigator class="order-item"
+          url="/pages/my_order/my_order?id=0">
+          <van-icon size="50rpx" 
+            color="#FF1493"
+            info="{{statistics[0]}}"
+            name="todo-list-o" />
+          <view class="order-title">待接单</view>
+        </navigator>
+        <navigator class="order-item"
           url="/pages/my_order/my_order?id=1">
           <van-icon size="50rpx" 
             color="#FF1493"
