@@ -1,0 +1,19 @@
+const configs = {
+  mysql: {
+    host: '127.0.0.1',
+    port: '3306',
+    user: 'root',
+    password: '',
+    database: ''
+  },
+  wechat:{
+    appid:"",
+    secret:""
+  },
+  qiniu: {
+    accessKey:"",
+    secretKey:""
+  }
+}
+
+module.exports = configs
